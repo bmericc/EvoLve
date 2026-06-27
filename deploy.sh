@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-THEME_DIR="/root/wordpress/sites/alpindede/wp-content/themes/alpindede"
+THEME_DIR="/root/wordpress/sites/alpindede/wp-content/themes/EvoLve"
 WP_PATH="/root/wordpress/sites/alpindede"
 
 echo "→ Pushing to GitHub..."
