@@ -44,15 +44,15 @@ class WPevolve {
 		define( 'THEMEJS', THEMEMEDIA . '/js' );
 		
 		// URI shortcuts
-		define( 'THEME', get_template_directory_uri(), true );
-		define( 'LIBRARY', THEME . '/library', true ); // Shortcut to point to the /library/ URI
-		
-		if ( STYLESHEETPATH !== get_template_directory() ) define( 'MEDIA', get_stylesheet_directory_uri(), true ); // Shortcut to point to the /media/ URI
-		else define( 'MEDIA', LIBRARY . '/media', true ); // Shortcut to point to the /media/ URI
-		
-		define( 'CSS', MEDIA . '/css', true );
-		define( 'IMAGES', MEDIA . '/images', true );
-		define( 'JS', MEDIA . '/js', true );
+		define( 'THEME', get_template_directory_uri() );
+		define( 'LIBRARY', THEME . '/library' ); // Shortcut to point to the /library/ URI
+
+		if ( STYLESHEETPATH !== get_template_directory() ) define( 'MEDIA', get_stylesheet_directory_uri() ); // Shortcut to point to the /media/ URI
+		else define( 'MEDIA', LIBRARY . '/media' ); // Shortcut to point to the /media/ URI
+
+		define( 'CSS', MEDIA . '/css' );
+		define( 'IMAGES', MEDIA . '/images' );
+		define( 'JS', MEDIA . '/js' );
 
 		do_action( 'enviroment' ); // Available action: load_enviroment
 	}

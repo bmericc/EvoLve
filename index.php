@@ -388,6 +388,7 @@ similar_posts(); } ?>
  
       
       
+                <?php $xyz = 0; ?>
                 <?php while ( have_posts() ) : the_post(); ?>
         
                 
