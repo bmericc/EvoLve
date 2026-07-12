@@ -12,15 +12,7 @@ function evolve_media() {
   $options = get_option('evolve');
 	if( is_admin() ) return;
 	wp_enqueue_script( 'hoverIntent' );
-  wp_enqueue_script( 'jquery' );  
-  if ( ( is_home() || is_front_page() ) && ! empty( $options['evl_new_slider_enable'] ) ) {
-    wp_register_script( 'jquery_cycle', JS . '/jquery.cycle.all.min.js', array( 'jquery' ), '2.9999.5', true );
-    wp_enqueue_script( 'evolve_slider', JS . '/evolve-slider-settings.js', array( 'jquery_cycle' ), false, true );
-    wp_localize_script( 'evolve_slider', 'evolve_slider_value', array(
-      'transition_effect'   => ! empty( $options['evl_new_slider_effect'] ) ? $options['evl_new_slider_effect'] : 'fade',
-      'transition_delay'    => ! empty( $options['evl_new_slider_delay'] ) ? intval( $options['evl_new_slider_delay'] ) : 5000,
-    ) );
-  }
+  wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'tipsy', JS . '/tipsy.js' );
   wp_enqueue_script( 'fields', JS . '/fields.js' );
   if ($options['evl_pos_button'] == "disable" || $options['evl_pos_button'] == "") {} else { wp_enqueue_script( 'jquery_scroll', JS . '/jquery.scroll.pack.js' ); }      
@@ -32,6 +24,28 @@ function evolve_media() {
     (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false)) {
   wp_enqueue_style( 'iecss', WP_CONTENT_URL . '/themes/alpindede/library/media/css/ie.css' );}
 }
+
+/**
+ * evolve_slider_scripts() - Anasayfada featured slider aktifse jQuery Cycle + ayar JS'ini yükler.
+ * 'wp_enqueue_scripts' hook'una bağlıdır (evolve_media()'nın bağlı olduğu 'init'ten farklı olarak,
+ * bu hook main query çözüldükten sonra çalışır, bu yüzden is_home()/is_front_page() burada güvenilirdir).
+ *
+ * @since 2026-07
+ */
+if ( ! function_exists( 'evolve_slider_scripts' ) ) :
+function evolve_slider_scripts() {
+	if ( is_admin() ) return;
+	$options = get_option( 'evolve' );
+	if ( ( is_home() || is_front_page() ) && ! empty( $options['evl_new_slider_enable'] ) ) {
+		wp_register_script( 'jquery_cycle', JS . '/jquery.cycle.all.min.js', array( 'jquery' ), '2.9999.5', true );
+		wp_enqueue_script( 'evolve_slider', JS . '/evolve-slider-settings.js', array( 'jquery_cycle' ), false, true );
+		wp_localize_script( 'evolve_slider', 'evolve_slider_value', array(
+			'transition_effect' => ! empty( $options['evl_new_slider_effect'] ) ? $options['evl_new_slider_effect'] : 'fade',
+			'transition_delay'  => ! empty( $options['evl_new_slider_delay'] ) ? intval( $options['evl_new_slider_delay'] ) : 5000,
+		) );
+	}
+}
+endif;
 
 /**
  * evolve_featured_post_slider() - Anasayfada tam genişlik öne çıkan yazı slider'ı basar.

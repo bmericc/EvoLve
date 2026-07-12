@@ -87,6 +87,7 @@ class WPevolve {
 		add_filter( 'the_generator', 'remove_generator_link', 1 ); // remove_generator_link() Removes generator link - Credits: (http://www.plaintxt.org)
 		add_filter( 'wp_page_menu', 'evolve_menu_ulclass' ); // adds a .nav class to the ul wp_page_menu generates
 		add_action( 'init', 'evolve_media' ); // evolve_media() loads scripts and styles
+		add_action( 'wp_enqueue_scripts', 'evolve_slider_scripts' ); // evolve_slider_scripts() loads featured slider JS (needs is_home()/is_front_page() to be reliable, which requires the main query to already be parsed - not the case yet on 'init')
 	}
 	
 	/**
