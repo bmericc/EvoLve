@@ -6,6 +6,7 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 100, 100, true );
 add_image_size( 'single-featured', 610, 0, false ); // tekli yazı/sayfa öne çıkan görsel (orantılı, kırpma yok)
+add_image_size( 'evolve-slider', 960, 420, true ); // anasayfa tam genişlik slider görseli (kırpmalı)
 add_editor_style('editor-style.css');
 add_action( 'wp_dashboard_setup', 'addDashboardWidgets', 9 );
 
@@ -393,8 +394,27 @@ $slider_speed = array(
   '3' => array(
 		'value' =>	'fast',
 		'label' => __( 'Fast' )
-	)                
-); 
+	)
+);
+
+$slider_effect_options = array(
+	'0' => array(
+		'value' =>	'fade',
+		'label' => __( 'Fade &nbsp;&nbsp;&nbsp;(default)' )
+	),
+	'1' => array(
+		'value' =>	'scrollHorz',
+		'label' => __( 'Scroll Horizontal' )
+	),
+	'2' => array(
+		'value' =>	'scrollVert',
+		'label' => __( 'Scroll Vertical' )
+	),
+	'3' => array(
+		'value' =>	'shuffle',
+		'label' => __( 'Shuffle' )
+	)
+);
 
 $select_back_button = array(
   '0' => array(
@@ -842,13 +862,31 @@ array(  "name" => "Archives and other pages header content",
         "type" => "select21",
         "std" => "false"),               
         
-array(  "name" => "Slideshow",
-        "desc" => "To enable a slideshow the <strong>Recent Posts + Search Field + Subscribe Buttons</strong> option must be enabled",
-        "id" => $shortname."_header_slider",
-        "type" => "select15",
-        "std" => "false"),                 
+array(  "name" => "Enable Featured Slider",
+        "desc" => "Anasayfada tam genişlik öne çıkan yazı slider'ı gösterir (Travelify tarzı)",
+        "id" => $shortname."_new_slider_enable",
+        "type" => "checkbox",
+        "std" => "0"),
 
-array( "type" => "close"),   
+array(  "name" => "Slider Posts",
+        "desc" => "Slider'da gösterilecek yazı/sayfa ID'lerini virgülle ayırarak sırayla girin, örn: 12,45,7",
+        "id" => $shortname."_new_slider_posts",
+        "type" => "text",
+        "std" => ""),
+
+array(  "name" => "Slider Transition Effect",
+        "desc" => "",
+        "id" => $shortname."_new_slider_effect",
+        "type" => "select24",
+        "std" => "false"),
+
+array(  "name" => "Slider Transition Delay (ms)",
+        "desc" => "Slaytlar arası bekleme süresi, milisaniye (örn: 5000)",
+        "id" => $shortname."_new_slider_delay",
+        "type" => "text",
+        "std" => "5000"),
+
+array( "type" => "close"),
 
 array( "type" => "close-tab"),
 
@@ -1037,7 +1075,7 @@ array( "type" => "close-tab"),
  */
 function theme_options_do_page() {
 	global $themename, $shortname, $optionlist, $select_sidebar_num, $select_sidebar, $select_width, $select_home_header, $select_content_back, $select_menu_back, $select_main_color,
-  $select_post_layout, $select_title_font, $select_content_font, $select_widgets_num, $select_widgets_header, $select_logo, $select_nav_links, $slider_speed,
+  $select_post_layout, $select_title_font, $select_content_font, $select_widgets_num, $select_widgets_header, $select_logo, $select_nav_links, $slider_speed, $slider_effect_options,
   $select_back_button, $share_this_button, $header_meta, $select_post_links, $select_single_header, $select_archives_header, $select_tagline_pos, $select_similar_posts; 
   
   
@@ -2398,7 +2436,38 @@ case 'select23':
                     
 <?php
 break;
- 
+
+case 'select24':
+?>
+<tr>
+<td width="15%" rowspan="2" valign="middle"><strong><?php echo $value['name']; ?></strong></td>
+<td width="85%"><select style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>">
+
+<?php
+								$selected = $options[$value['id']];
+								$p = '';
+								$r = '';
+
+								foreach ( $slider_effect_options as $option ) {
+									$label = $option['label'];
+									if ( $selected == $option['value'] ) // Make default first in list
+										$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+									else
+										$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+								}
+								echo $p . $r;
+							?>
+
+</select></td>
+</tr>
+
+<tr>
+<td><small><?php echo $value['desc']; ?></small></td>
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+<?php
+break;
+
 case "checkbox":
 ?>
 <tr>
@@ -2510,7 +2579,7 @@ case 'upload':
  */
 function theme_options_validate( $input ) {
 	global $select_sidebar, $select_back_button, $select_sidebar_num, $select_width, $select_home_header, $select_content_back, $select_menu_back, $select_main_color,
-  $select_post_layout, $select_title_font, $select_content_font, $select_widgets_num, $select_widgets_header, $select_logo, $select_nav_links, $slider_speed,
+  $select_post_layout, $select_title_font, $select_content_font, $select_widgets_num, $select_widgets_header, $select_logo, $select_nav_links, $slider_speed, $slider_effect_options,
   $share_this_button, $header_meta, $select_post_links, $select_single_header, $select_archives_header, $select_tagline_pos, $select_similar_posts;
 
 	// Our checkbox value is either 0 or 1
@@ -2553,9 +2622,18 @@ function theme_options_validate( $input ) {
   
            if ( ! isset( $input['evl_author_avatar'] ) )
 		$input['evl_author_avatar'] = null;
-	$input['evl_author_avatar'] = ( $input['evl_author_avatar'] == 1 ? 1 : 0 );  
-  
-  
+	$input['evl_author_avatar'] = ( $input['evl_author_avatar'] == 1 ? 1 : 0 );
+
+     if ( ! isset( $input['evl_new_slider_enable'] ) )
+		$input['evl_new_slider_enable'] = null;
+	$input['evl_new_slider_enable'] = ( $input['evl_new_slider_enable'] == 1 ? 1 : 0 );
+
+	// Slider post ID listesi: sadece rakam, virgül ve boşluk kabul edilir
+	$input['evl_new_slider_posts'] = preg_replace( '/[^0-9,\s]/', '', $input['evl_new_slider_posts'] );
+
+	// Slider gecikme: sadece rakam
+	$input['evl_new_slider_delay'] = preg_replace( '/[^0-9]/', '', $input['evl_new_slider_delay'] );
+	if ( '' == $input['evl_new_slider_delay'] ) $input['evl_new_slider_delay'] = '5000';
 
 
 	// Say our text option must be safe text with no HTML tags
@@ -2847,55 +2925,6 @@ var $j = jQuery.noConflict();
    });
    </script> 
 
-<?php $options = get_option('evolve');
-
-if ($options['evl_header_slider'] !== "disable" || $options['evl_header_slider'] !== "") {
-
-
-  if ($options['evl_header_slider'] == "normal" || $options['evl_header_slider'] == "") { ?>
-
-<script type="text/javascript" charset="utf-8">
-var $s = jQuery.noConflict();
-	jQuery(function($s){
-		$s('#slide_holder').loopedSlider({
-			autoStart: 7000,
-			restart: 15000,
-			slidespeed: 1200,
-			containerClick: false
-		});
-	});
-</script>
-
-<?php } if ($options['evl_header_slider'] == "slow") { ?>
-
-<script type="text/javascript" charset="utf-8">
-var $s = jQuery.noConflict();
-	jQuery(function($s){
-		$s('#slide_holder').loopedSlider({
-			autoStart: 10000,
-			restart: 15000,
-			slidespeed: 1200,
-			containerClick: false
-		});
-	});
-</script>
-
-<?php } if ($options['evl_header_slider'] == "fast") { ?>
-
-<script type="text/javascript" charset="utf-8">
-var $s = jQuery.noConflict();
-jQuery(function($s){
-		$s('#slide_holder').loopedSlider({
-			autoStart: 3500,
-			restart: 15000,
-			slidespeed: 1200,
-			containerClick: false
-		});
-	});
-</script>
-
-<?php } } ?>  
-	
 <?php echo evolve_copy(); }
 
 

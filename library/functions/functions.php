@@ -13,7 +13,14 @@ function evolve_media() {
 	if( is_admin() ) return;
 	wp_enqueue_script( 'hoverIntent' );
   wp_enqueue_script( 'jquery' );  
-  if ($options['evl_header_slider'] == "disable" || $options['evl_header_slider'] == "") {} else { wp_enqueue_script( 'carousel', JS . '/carousel.js' ); }
+  if ( ( is_home() || is_front_page() ) && ! empty( $options['evl_new_slider_enable'] ) ) {
+    wp_register_script( 'jquery_cycle', JS . '/jquery.cycle.all.min.js', array( 'jquery' ), '2.9999.5', true );
+    wp_enqueue_script( 'evolve_slider', JS . '/evolve-slider-settings.js', array( 'jquery_cycle' ), false, true );
+    wp_localize_script( 'evolve_slider', 'evolve_slider_value', array(
+      'transition_effect'   => ! empty( $options['evl_new_slider_effect'] ) ? $options['evl_new_slider_effect'] : 'fade',
+      'transition_delay'    => ! empty( $options['evl_new_slider_delay'] ) ? intval( $options['evl_new_slider_delay'] ) : 5000,
+    ) );
+  }
   wp_enqueue_script( 'tipsy', JS . '/tipsy.js' );
   wp_enqueue_script( 'fields', JS . '/fields.js' );
   if ($options['evl_pos_button'] == "disable" || $options['evl_pos_button'] == "") {} else { wp_enqueue_script( 'jquery_scroll', JS . '/jquery.scroll.pack.js' ); }      
@@ -23,8 +30,69 @@ function evolve_media() {
   wp_enqueue_script( 'buttons', JS . '/buttons.js' );
   if (isset($_SERVER['HTTP_USER_AGENT']) && 
     (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false)) {
-  wp_enqueue_style( 'iecss', WP_CONTENT_URL . '/themes/alpindede/library/media/css/ie.css' );}  
+  wp_enqueue_style( 'iecss', WP_CONTENT_URL . '/themes/alpindede/library/media/css/ie.css' );}
 }
+
+/**
+ * evolve_featured_post_slider() - Anasayfada tam genişlik öne çıkan yazı slider'ı basar.
+ * Travelify temasındaki travelify_featured_post_slider() mantığından uyarlanmıştır.
+ *
+ * @since 2026-07
+ */
+if ( ! function_exists( 'evolve_featured_post_slider' ) ) :
+function evolve_featured_post_slider() {
+	$options = get_option( 'evolve' );
+
+	if ( empty( $options['evl_new_slider_enable'] ) ) {
+		return;
+	}
+
+	$ids = array_filter( array_map( 'intval', explode( ',', (string) $options['evl_new_slider_posts'] ) ) );
+
+	if ( empty( $ids ) ) {
+		return;
+	}
+
+	$slider_query = new WP_Query( array(
+		'post_type'           => array( 'post', 'page' ),
+		'post__in'            => $ids,
+		'orderby'              => 'post__in',
+		'posts_per_page'       => count( $ids ),
+		'ignore_sticky_posts'  => 1,
+		'suppress_filters'     => false,
+	) );
+
+	if ( ! $slider_query->have_posts() ) {
+		return;
+	}
+
+	echo '<section class="featured-slider"><div class="slider-cycle">';
+
+	$i = 0;
+	while ( $slider_query->have_posts() ) : $slider_query->the_post();
+		$i++;
+		$classes = ( 1 === $i ) ? 'slides displayblock' : 'slides displaynone';
+		$title   = get_the_title();
+		echo '<div class="' . esc_attr( $classes ) . '">';
+			if ( has_post_thumbnail() ) {
+				echo '<figure><a href="' . esc_url( get_permalink() ) . '" title="' . esc_attr( $title ) . '">';
+				echo get_the_post_thumbnail( get_the_ID(), 'evolve-slider', array( 'alt' => esc_attr( $title ) ) );
+				echo '</a></figure>';
+			}
+			echo '<article class="featured-text">';
+				echo '<div class="featured-title"><a href="' . esc_url( get_permalink() ) . '" title="' . esc_attr( $title ) . '">' . esc_html( $title ) . '</a></div>';
+				$excerpt = get_the_excerpt();
+				if ( $excerpt ) {
+					echo '<div class="featured-content">' . esc_html( $excerpt ) . '</div>';
+				}
+			echo '</article>';
+		echo '</div>';
+	endwhile;
+	wp_reset_postdata();
+
+	echo '</div><nav id="controllers" class="clearfix"></nav></section>';
+}
+endif;
 
 /**
  * remove_generator_link() Removes generator link

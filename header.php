@@ -200,6 +200,11 @@
        
        </div>
 
+        <!--BEGIN featured-slider -->
+        <?php if ( ( is_home() || is_front_page() ) && function_exists( 'evolve_featured_post_slider' ) ) {
+            evolve_featured_post_slider();
+        } ?>
+        <!--END featured-slider -->
 
         <!--BEGIN header-content.php -->
         

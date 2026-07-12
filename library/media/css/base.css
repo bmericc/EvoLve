@@ -575,6 +575,25 @@ div.slides { position:absolute; top:0; left:0; }
 ul.slides { width:620px;position:absolute; top:0; left:0; list-style:none; padding:0; margin:0; }
 ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display:none; padding:0 40px 0 0 ; margin:0; }
 
+/* Featured Slider (Travelify tarzı tam genişlik hero slider) */
+.featured-slider { clear:both; width:100%; max-width:960px; margin:0 auto; position:relative; }
+.featured-slider .slider-cycle { position:relative; width:100%; overflow:hidden; }
+.featured-slider .slides { position:relative; width:100%; }
+.featured-slider .slides.displaynone { display:none; }
+.featured-slider .slides.displayblock { display:block; }
+.featured-slider .slides figure { margin:0; padding:0; line-height:0; }
+.featured-slider .slides figure img { width:100%; height:auto; display:block; }
+.featured-slider .featured-text { position:absolute; left:0; right:0; bottom:0; padding:15px 20px; background:rgba(0,0,0,0.6); box-sizing:border-box; }
+.featured-slider .featured-title a { color:#fff; font-size:22px; font-weight:bold; text-decoration:none; line-height:1.3; }
+.featured-slider .featured-content { color:#eee; font-size:13px; margin-top:6px; display:none; }
+.featured-slider #controllers { text-align:center; padding:10px 0; }
+.featured-slider #controllers span { display:inline-block; width:10px; height:10px; margin:0 4px; border-radius:50%; background:#ccc; cursor:pointer; }
+.featured-slider #controllers span.active { background:#333; }
+@media (max-width:768px) {
+	.featured-slider .featured-title a { font-size:16px; }
+	.featured-slider .featured-content { display:none; }
+}
+
 
 .twitter-time {color:#888;}
 .twitter-status, .post-more {background:#eee;padding:3px 5px;-moz-border-radius:3px;-moz-box-shadow:0 1px 3px #bbb;}

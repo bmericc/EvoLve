@@ -1,16 +1,4 @@
-    <?php $options = get_option('evolve');  
-  if ($options['evl_header_slider'] == "disable" || $options['evl_header_slider'] == "") { ?>
-   
-   <style type="text/css"> 
-  ul.slides li.slide {
-display:block !important; }
-</style>    
-
-  <?php } else { ?>
-  
-  <?php } ?>
- 
- <?php $options = get_option('evolve'); 
+    <?php $options = get_option('evolve');
   if ($options['evl_pos_sidebar'] == "right") { ?>
   
   <?php } if ($options['evl_pos_sidebar'] == "left") { ?> 
