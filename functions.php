@@ -2931,16 +2931,15 @@ function evolve_social_image_meta() {
 
 	list( $url, $width, $height ) = $image;
 
-	$options = get_option( 'evolve' );
-	$handle  = ! empty( $options['evl_twitter_id'] ) ? '@' . ltrim( $options['evl_twitter_id'], '@' ) : '@alpindede';
-
+	// Not: twitter:creator (@alpindede) zaten Yoast SEO tarafından üretiliyor
+	// (Sosyal ayarları > Twitter kullanıcı adı) — burada tekrar edilmiyor,
+	// sadece Yoast'ın üretmediği sayısal creator:id ekleniyor.
 	printf( '<meta property="og:image" content="%s" />' . "\n", esc_url( $url ) );
 	printf( '<meta property="og:image:width" content="%d" />' . "\n", (int) $width );
 	printf( '<meta property="og:image:height" content="%d" />' . "\n", (int) $height );
 	printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $url ) );
 	printf( '<meta name="twitter:image:width" content="%d" />' . "\n", (int) $width );
 	printf( '<meta name="twitter:image:height" content="%d" />' . "\n", (int) $height );
-	printf( '<meta name="twitter:creator" content="%s" />' . "\n", esc_attr( $handle ) );
 	echo '<meta name="twitter:creator:id" content="245714874" />' . "\n";
 }
 
