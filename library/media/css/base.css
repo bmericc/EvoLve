@@ -583,12 +583,13 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 .featured-slider .slides.displayblock { display:block; }
 .featured-slider .slides figure { margin:0; padding:0; line-height:0; }
 .featured-slider .slides figure img { width:100%; height:auto; display:block; }
-.featured-slider .featured-text { position:absolute; left:0; right:0; bottom:0; padding:15px 20px; background:rgba(0,0,0,0.6); box-sizing:border-box; }
+.featured-slider .featured-text { position:absolute; left:0; right:0; bottom:0; padding:15px 20px 32px 20px; background:rgba(0,0,0,0.6); box-sizing:border-box; z-index:1; }
 .featured-slider .featured-title a { color:#fff; font-size:22px; font-weight:bold; text-decoration:none; line-height:1.3; }
 .featured-slider .featured-content { color:#eee; font-size:13px; margin-top:6px; display:none; }
 
 /* jQuery Cycle 'pager' seçeneği #controllers içine <a> etiketleri üretir (span değil) */
-#controllers { text-align:center; line-height:0; position:absolute; width:100%; bottom:15px; left:0; z-index:9999; }
+/* .featured-text alt tarafta 32px boşluk bırakıyor (yukarıda), noktalar o boşluğa oturur, başlıkla çakışmaz */
+#controllers { text-align:center; line-height:0; position:absolute; width:100%; bottom:8px; left:0; z-index:2; }
 #controllers a { width:10px; height:10px; margin:0 4px; overflow:hidden; display:inline-block; background-color:#fff; border:1px solid rgba(0,0,0,0.3); border-radius:50%; color:#fff; cursor:pointer; text-decoration:none; }
 #controllers a.active { background-color:#333; }
 #controllers a:hover, #controllers a:focus { background-color:#333 !important; color:#333 !important; }
