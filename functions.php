@@ -2694,7 +2694,6 @@ function ud_setting_filename() {
 /* Custom Menu */   
   
 add_action( 'init', 'register_my_menu' );
-add_filter( 'twitter_cards_properties', 'twitter_custom' );
 
 function register_my_menu() {
 	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );	
@@ -2911,12 +2910,38 @@ if ($options['evl_custom_background'] == "1") {
 add_custom_background();
 }  
 
-function twitter_custom( $twitter_card ) {
-	if ( is_array( $twitter_card ) ) {
-		$twitter_card['creator'] = '@alpindede';
-		$twitter_card['creator:id'] = '245714874';
+/**
+ * Open Graph / Twitter Card görsel etiketleri.
+ * Not (2026-07-12): Bu işlevi daha önce ayrı bir "Twitter Cards" eklentisi
+ * sağlıyordu; eklenti kaldırıldığı için aynı çıktı doğrudan temaya taşındı.
+ * Yoast SEO zaten og:title / og:description / og:url ve twitter:card /
+ * twitter:label / twitter:data etiketlerini üretiyor, ama görsel etiketini
+ * (og:image / twitter:image) üretmiyor — o eksik burada tamamlanıyor.
+ */
+add_action( 'wp_head', 'evolve_social_image_meta', 5 );
+function evolve_social_image_meta() {
+	if ( ! is_singular() || ! has_post_thumbnail() ) {
+		return;
 	}
-return $twitter_card;
+
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+	if ( ! $image ) {
+		return;
+	}
+
+	list( $url, $width, $height ) = $image;
+
+	$options = get_option( 'evolve' );
+	$handle  = ! empty( $options['evl_twitter_id'] ) ? '@' . ltrim( $options['evl_twitter_id'], '@' ) : '@alpindede';
+
+	printf( '<meta property="og:image" content="%s" />' . "\n", esc_url( $url ) );
+	printf( '<meta property="og:image:width" content="%d" />' . "\n", (int) $width );
+	printf( '<meta property="og:image:height" content="%d" />' . "\n", (int) $height );
+	printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $url ) );
+	printf( '<meta name="twitter:image:width" content="%d" />' . "\n", (int) $width );
+	printf( '<meta name="twitter:image:height" content="%d" />' . "\n", (int) $height );
+	printf( '<meta name="twitter:creator" content="%s" />' . "\n", esc_attr( $handle ) );
+	echo '<meta name="twitter:creator:id" content="245714874" />' . "\n";
 }
 
 
