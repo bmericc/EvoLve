@@ -229,14 +229,19 @@ get_header();
     <?php $options = get_option('evolve');
      if (!empty($options['evl_space_7'])) { 
     
- $ad_space_7 = $options['evl_space_7']; 
+ $ad_space_7 = $options['evl_space_7'];
  echo '<div style="text-align:center;margin:25px 0;clear:both;overflow:hidden;">'.stripslashes($ad_space_7).'</div>';
- 
- } 
-?>                     
-      
+
+ }
+?>
+
 			<!--BEGIN .entry-content .article-->
 					<div class="entry-content article">
+						<?php if ( has_post_thumbnail() ) : ?>
+						<figure class="single-featured-image" style="margin:0 0 20px 0;">
+							<?php the_post_thumbnail( 'single-featured', array( 'alt' => esc_attr( get_the_title() ), 'style' => 'max-width:100%;height:auto;' ) ); ?>
+						</figure>
+						<?php endif; ?>
 						<?php the_content( __('READ MORE &raquo;', 'evolve' ) ); ?>
             <?php wp_link_pages( array( 'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ), 'after' => '</p></div>' ) ); ?>
 					<!--END .entry-content .article-->
@@ -815,6 +820,11 @@ echo truncate($postexcerpt, 350, ' [...]');
 
 					<!--BEGIN .entry-content .article-->
 					<div class="entry-content article">
+						<?php if ( has_post_thumbnail() ) : ?>
+						<figure class="single-featured-image" style="margin:0 0 20px 0;">
+							<?php the_post_thumbnail( 'single-featured', array( 'alt' => esc_attr( get_the_title() ), 'style' => 'max-width:100%;height:auto;' ) ); ?>
+						</figure>
+						<?php endif; ?>
 						<?php the_content( __('READ MORE &raquo;', 'evolve' ) ); ?>
 					<!--END .entry-content .article-->
           <div style="clear:both;"></div>

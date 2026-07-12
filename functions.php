@@ -3,8 +3,9 @@
 
 
 add_theme_support( 'automatic-feed-links' );
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 100, 100, true );
+add_image_size( 'single-featured', 610, 0, false ); // tekli yazı/sayfa öne çıkan görsel (orantılı, kırpma yok)
 add_editor_style('editor-style.css');
 add_action( 'wp_dashboard_setup', 'addDashboardWidgets', 9 );
 
