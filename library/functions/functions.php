@@ -104,7 +104,14 @@ function evolve_featured_post_slider() {
 	endwhile;
 	wp_reset_postdata();
 
-	echo '</div><nav id="controllers" class="clearfix"></nav></section>';
+	echo '</div><nav id="controllers" class="clearfix"></nav>';
+
+	if ( $i > 1 ) {
+		echo '<a href="#" class="slider-nav slider-prev" id="slider-prev" aria-label="' . esc_attr__( 'Önceki', 'evolve' ) . '">&#10094;</a>';
+		echo '<a href="#" class="slider-nav slider-next" id="slider-next" aria-label="' . esc_attr__( 'Sonraki', 'evolve' ) . '">&#10095;</a>';
+	}
+
+	echo '</section>';
 }
 endif;
 

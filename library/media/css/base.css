@@ -589,14 +589,23 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 
 /* jQuery Cycle 'pager' seçeneği #controllers içine <a> etiketleri üretir (span değil) */
 /* .featured-text alt tarafta 32px boşluk bırakıyor (yukarıda), noktalar o boşluğa oturur, başlıkla çakışmaz */
-#controllers { text-align:center; line-height:0; position:absolute; width:100%; bottom:8px; left:0; z-index:2; }
+/* z-index:9999 şart - jQuery Cycle fade geçişinde slaytlara kendi inline z-index'ini atıyor (Travelify'de de aynı sebeple 9999 kullanılıyor), düşük bir değer (ör. 2) aktif slaytın arkasında kalıp görünmez oluyordu */
+#controllers { text-align:center; line-height:0; position:absolute; width:100%; bottom:8px; left:0; z-index:9999; }
 #controllers a { width:10px; height:10px; margin:0 4px; overflow:hidden; display:inline-block; background-color:#fff; border:1px solid rgba(0,0,0,0.3); border-radius:50%; color:#fff; cursor:pointer; text-decoration:none; }
 #controllers a.active { background-color:#333; }
 #controllers a:hover, #controllers a:focus { background-color:#333 !important; color:#333 !important; }
 
+/* Sağ/sol geçiş okları (next/prev) - jQuery Cycle'ın 'next'/'prev' seçenekleriyle bağlanır */
+.featured-slider .slider-nav { position:absolute; top:50%; margin-top:-20px; width:40px; height:40px; line-height:38px; text-align:center; background:rgba(0,0,0,0.4); color:#fff; font-size:20px; text-decoration:none; z-index:9999; border-radius:2px; opacity:0; transition:opacity .2s ease, background-color .2s ease; }
+.featured-slider:hover .slider-nav { opacity:1; }
+.featured-slider .slider-nav:hover, .featured-slider .slider-nav:focus { background:rgba(0,0,0,0.75); color:#fff; }
+.featured-slider .slider-prev { left:10px; }
+.featured-slider .slider-next { right:10px; }
+
 @media (max-width:768px) {
 	.featured-slider .featured-title a { font-size:16px; }
 	.featured-slider .featured-content { display:none; }
+	.featured-slider .slider-nav { opacity:1; width:32px; height:32px; line-height:30px; font-size:16px; margin-top:-16px; }
 }
 
 
