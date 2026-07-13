@@ -720,37 +720,37 @@ array( "type" => "close"),
  
 array( "type" => "open"),
 
-array(  "name" => "Twitter",
-        "desc" => "Insert your Twitter ID",
+array(  "name" => "Twitter / X",
+        "desc" => "Insert your Twitter/X username",
         "id" => $shortname."_twitter_id",
         "type" => "text3",
-        "std" => ""),  
+        "std" => ""),
 
 array( "type" => "close"),
 
-// Google Buzz
+// Instagram
 
 array( "type" => "open"),
 
-array(  "name" => "Google Buzz",
-        "desc" => "Insert your Google Buzz ID",
-        "id" => $shortname."_google_buzz",
+array(  "name" => "Instagram",
+        "desc" => "Insert your Instagram username",
+        "id" => $shortname."_instagram",
         "type" => "text4",
-        "std" => ""),  
+        "std" => ""),
 
-array( "type" => "close"), 
+array( "type" => "close"),
 
-// MySpace
+// WhatsApp
 
 array( "type" => "open"),
 
-array(  "name" => "MySpace",
-        "desc" => "Insert your MySpace ID",
-        "id" => $shortname."_myspace",
+array(  "name" => "WhatsApp",
+        "desc" => "Insert your WhatsApp number with country code, digits only, e.g. <strong>905551234567</strong>",
+        "id" => $shortname."_whatsapp",
         "type" => "text5",
-        "std" => ""),  
+        "std" => ""),
 
-array( "type" => "close"), 
+array( "type" => "close"),
 
 // Skype
 
@@ -797,9 +797,21 @@ array(  "name" => "LinkedIn",
         "desc" => "Insert your LinkedIn profile URI, e.g. <strong>http://ca.linkedin.com/pub/your-name/3/859/23b</strong>",
         "id" => $shortname."_linkedin",
         "type" => "text9",
-        "std" => ""),  
+        "std" => ""),
 
-array( "type" => "close"), 
+array( "type" => "close"),
+
+// TikTok
+
+array( "type" => "open"),
+
+array(  "name" => "TikTok",
+        "desc" => "Insert your TikTok username (without @)",
+        "id" => $shortname."_tiktok",
+        "type" => "text10",
+        "std" => ""),
+
+array( "type" => "close"),
 
 array( "type" => "close-tab"),
 
@@ -1308,13 +1320,13 @@ case 'text3':
 
 <tr>
 
-<td width="15%" rowspan="2" valign="middle"><strong>Twitter</strong>
+<td width="15%" rowspan="2" valign="middle"><strong>Twitter / X</strong>
 
 </td>
 
 
 
-<td width="85%" id="focus-input"><input title="If your Twitter page is <strong>http://twitter.com/username</strong>, insert only <strong>username</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
+<td width="85%" id="focus-input"><input title="If your X page is <strong>https://x.com/username</strong>, insert only <strong>username</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
                                                                                                                                                                                   
 
 </tr>
@@ -1334,25 +1346,25 @@ case 'text4':
 
 <tr>
 
-<td width="15%" rowspan="2" valign="middle"><strong>Google Buzz</strong>
+<td width="15%" rowspan="2" valign="middle"><strong>Instagram</strong>
 
 </td>
 
 
 
-<td width="85%" id="focus-input"><input title="If your Google Buzz page is <strong>http://google.com/profiles/example</strong>, insert only <strong>example</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
-                                                                                                                                                                                  
+<td width="85%" id="focus-input"><input title="If your Instagram page is <strong>https://instagram.com/example</strong>, insert only <strong>example</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
+
 
 </tr>
- 
+
 <tr>
 <td><small><?php echo $value['desc']; ?></small></td>
 </tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr>
-     
 
-<!-- MYSPACE -->
 
-<?php break; 
+<!-- WHATSAPP -->
+
+<?php break;
 
 case 'text5':
 ?>
@@ -1360,21 +1372,21 @@ case 'text5':
 
 <tr>
 
-<td width="15%" rowspan="2" valign="middle"><strong>MySpace</strong>
+<td width="15%" rowspan="2" valign="middle"><strong>WhatsApp</strong>
 
 </td>
 
 
 
-<td width="85%" id="focus-input"><input title ="If your MySpace page is <strong>http://myspace.com/username</strong>, insert only <strong>username</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
-                                                                                                                                                                                  
+<td width="85%" id="focus-input"><input title ="Insert your WhatsApp number with country code, digits only, e.g. <strong>905551234567</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
+
 
 </tr>
- 
+
 <tr>
 <td><small><?php echo $value['desc']; ?></small></td>
 </tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr>
-     
+
 
 <!-- SKYPE -->
 
@@ -1468,23 +1480,38 @@ case 'text9':
 </td>
 
 <td width="85%" id="focus-input"><input style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
-                                                                                                                                                                                  
-
+                       
 </tr>
- 
+
 <tr>
 <td><small><?php echo $value['desc']; ?></small></td>
 </tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr>
-  
- 
- 
- 
 
+<!-- TIKTOK -->
+
+<?php break;
+
+case 'text10':
+?>
+
+
+<tr>
+
+<td width="15%" rowspan="2" valign="middle"><strong>TikTok</strong>
+
+</td>
+
+<td width="85%" id="focus-input"><input title="If your TikTok page is <strong>https://tiktok.com/@example</strong>, insert only <strong>example</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
+
+</tr>
+
+<tr>
+<td><small><?php echo $value['desc']; ?></small></td>
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr>
 
 
 <?php
 break;
- 
 case 'textarea1':
 ?>
 
@@ -2645,18 +2672,23 @@ function theme_options_validate( $input ) {
   
    $input['evl_twitter_id'] = wp_filter_nohtml_kses( $input['evl_twitter_id'] );   
   
-   $input['evl_google_buzz'] = wp_filter_nohtml_kses( $input['evl_google_buzz'] );  
-  
-   $input['evl_myspace'] = wp_filter_nohtml_kses( $input['evl_myspace'] );  
-  
-   $input['evl_skype'] = wp_filter_nohtml_kses( $input['evl_skype'] );   
-  
-   $input['evl_youtube'] = wp_filter_nohtml_kses( $input['evl_youtube'] );   
-  
-   $input['evl_flickr'] = wp_filter_nohtml_kses( $input['evl_flickr'] ); 
-   
-     
-   
+   $input['evl_instagram'] = wp_filter_nohtml_kses( $input['evl_instagram'] );
+
+   // WhatsApp: sadece rakam (ülke kodu + numara) kabul edilir, wa.me linki için gerekli
+   $input['evl_whatsapp'] = preg_replace( '/[^0-9]/', '', $input['evl_whatsapp'] );
+
+   $input['evl_skype'] = wp_filter_nohtml_kses( $input['evl_skype'] );
+
+   $input['evl_youtube'] = wp_filter_nohtml_kses( $input['evl_youtube'] );
+
+   $input['evl_flickr'] = wp_filter_nohtml_kses( $input['evl_flickr'] );
+
+   $input['evl_linkedin'] = wp_filter_nohtml_kses( $input['evl_linkedin'] );
+
+   $input['evl_tiktok'] = wp_filter_nohtml_kses( $input['evl_tiktok'] );
+
+
+
 	$input['evl_space_1'] = wp_filter_post_kses( $input['evl_space_1'] );
   
   $input['evl_space_2'] = wp_filter_post_kses( $input['evl_space_2'] );

@@ -19,15 +19,15 @@
 
 <?php 
   if (!empty($options['evl_twitter_id'])) { ?>
-<li><a target="_blank" href="http://twitter.com/<?php $options = get_option('evolve');if ($options['evl_twitter_id'] == "" ) $options['evl_twitter_id'] = $default_twitter_id;echo stripslashes($options['evl_twitter_id']);?>" style="text-decoration: none;" class="tipsytext" id="twitter" original-title="Twitter"></a></li><?php } else { ?><?php } ?>
+<li><a target="_blank" href="https://x.com/<?php $options = get_option('evolve');if ($options['evl_twitter_id'] == "" ) $options['evl_twitter_id'] = $default_twitter_id;echo stripslashes($options['evl_twitter_id']);?>" style="text-decoration: none;" class="tipsytext" id="twitter" original-title="X (Twitter)"></a></li><?php } else { ?><?php } ?>
 
-<?php 
-  if (!empty($options['evl_google_buzz'])) { ?>
-<li><a target="_blank" href="http://google.com/profiles/<?php $options = get_option('evolve');if ($options['evl_google_buzz'] != "" ) echo $options['evl_google_buzz']; ?>" class="tipsytext" id="buzz" original-title="Google Buzz"></a></li><?php } else { ?><?php } ?>
+<?php
+  if (!empty($options['evl_instagram'])) { ?>
+<li><a target="_blank" href="https://instagram.com/<?php $options = get_option('evolve');if ($options['evl_instagram'] != "" ) echo stripslashes($options['evl_instagram']); ?>" class="tipsytext" id="instagram" original-title="Instagram"></a></li><?php } else { ?><?php } ?>
 
-<?php 
-  if (!empty($options['evl_myspace'])) { ?>
-<li><a target="_blank" href="http://myspace.com/<?php $options = get_option('evolve');if ($options['evl_myspace'] != "" ) echo $options['evl_myspace']; ?>" class="tipsytext" id="myspace" original-title="MySpace"></a></li><?php } else { ?><?php } ?>
+<?php
+  if (!empty($options['evl_whatsapp'])) { ?>
+<li><a target="_blank" href="https://wa.me/<?php $options = get_option('evolve');if ($options['evl_whatsapp'] != "" ) echo $options['evl_whatsapp']; ?>" class="tipsytext" id="whatsapp" original-title="WhatsApp"></a></li><?php } else { ?><?php } ?>
 
 <?php 
   if (!empty($options['evl_skype'])) { ?>
@@ -41,9 +41,13 @@
   if (!empty($options['evl_flickr'])) { ?>
 <li><a target="_blank" href="http://flickr.com/photos/<?php $options = get_option('evolve');if ($options['evl_flickr'] != "" ) echo $options['evl_flickr']; ?>" class="tipsytext" id="flickr" original-title="Flickr"></a></li><?php } else { ?><?php } ?>
 
-<?php 
+<?php
   if (!empty($options['evl_linkedin'])) { ?>
 <li><a target="_blank" href="<?php $options = get_option('evolve');if ($options['evl_linkedin'] != "" ) echo $options['evl_linkedin']; ?>" class="tipsytext" id="linkedin" original-title="LinkedIn"></a></li><?php } else { ?><?php } ?>
+
+<?php
+  if (!empty($options['evl_tiktok'])) { ?>
+<li><a target="_blank" href="https://tiktok.com/@<?php $options = get_option('evolve');if ($options['evl_tiktok'] != "" ) echo stripslashes($options['evl_tiktok']); ?>" class="tipsytext" id="tiktok" original-title="TikTok"></a></li><?php } else { ?><?php } ?>
 
 
 </ul>

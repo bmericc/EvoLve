@@ -654,16 +654,23 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 
 .social-title {font-weight:bold;float:left;font-size:20px;letter-spacing:-1px;margin-right:10px;text-shadow:0 1px 2px #fff;}
 
-#rss, #email-newsletter, #facebook, #twitter, #buzz, #myspace, #skype, #youtube, #flickr, #linkedin {background:url("../images/social-buttons.png") no-repeat scroll left top transparent;display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;}
+#rss, #email-newsletter, #facebook, #skype, #flickr, #linkedin {background:url("../images/social-buttons.png") no-repeat scroll left top transparent;display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;}
 #email-newsletter {background-position:0 -32px;}
 #facebook {background-position:0 -96px;}
-#twitter {background-position:0 -64px;}
-#buzz {background-position:0 -128px;}
-#myspace {background-position:0 -160px;}
 #skype {background-position:0 -192px;}
-#youtube {background-position:0 -224px;}
 #flickr {background-position:0 -256px;}
 #linkedin {background-position:0 -288px;}
+
+/* Güncel platform ikonları (2026-07-13): Google Buzz/MySpace kaldırıldı,
+   Instagram/WhatsApp/TikTok eklendi; Twitter ikonu X (2022 rebrand) ve
+   YouTube ikonu güncel play-butonu logosuna güncellendi. Eski paylaşımlı
+   sprite yerine kendi ayrı 32x32 görselleri kullanılıyor. */
+#instagram, #whatsapp, #tiktok, #twitter, #youtube {display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;background-repeat:no-repeat;background-position:left top;}
+#instagram {background-image:url("../images/social-instagram.png");}
+#whatsapp {background-image:url("../images/social-whatsapp.png");}
+#twitter {background-image:url("../images/social-x.png");}
+#youtube {background-image:url("../images/social-youtube.png");}
+#tiktok {background-image:url("../images/social-tiktok.png");}
 
 div.sc_menu {position: relative;z-index:0;height: 32px;width: 315px;overflow: hidden;}
 ul.sc_menu {display: block;height: 32px;width: 1800px;padding: 0 0 0 10px;margin: 0;list-style: none;}
