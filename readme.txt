@@ -3,6 +3,24 @@ Theme Homepage -  http://theme4press.com/evolve
 Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl-2.0.html
 -------------------------------------------------------------------------------------------------
 
+Bu depo, alpindede.com için özelleştirilmiş bir EvoLve fork'udur (orijinal sürüm 1.2.3 taban alınmıştır).
+
+Current Version: 1.3.0
+
+Fork Changelog
+--------------
+
+Version: 1.3.0 - 13/7/26
+ - Genel mobil uyumluluk (responsive) katmanı eklendi: viewport meta etiketi, sabit genişlikli
+   layout/menü/header öğeleri için mobil @media override'ları (max-width:800px)
+ - Sosyal medya platform listesi güncellendi: Instagram, WhatsApp ve TikTok eklendi;
+   Google Buzz ve MySpace kaldırıldı; Twitter ikonu X (2022 rebrand) ve YouTube ikonu
+   güncel logolarıyla yenilendi
+ - Ana sayfada Travelify tarzı tam genişlik öne çıkan yazı slider'ı eklendi
+ - Twitter Cards eklentisi kaldırıldı, işlevi temaya taşındı
+ - PHP 8.4 uyumluluk düzeltmeleri (define() 3. argüman kaldırıldı, değişken initialize hataları giderildi)
+-------------------------------------------------------------------------------------------------
+
 EvoLve is a premium WordPress theme with advanced features including lots of 
 options. It features a modern design with up to 14 color variants, fully 
 customizable layout, post excerpts with thumbnails, post boxes, author gravatar 
