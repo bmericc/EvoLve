@@ -12,7 +12,7 @@
         <?php
   if ($settings == "search_social" || $settings == "") { ?>
   
-  <div style="float:left;width:620px;height:50px;margin-top:12px;">
+  <div id="header-social-block" style="float:left;width:620px;height:50px;margin-top:12px;">
   
   <!--BEGIN #subscribe-follow-->
  
@@ -38,7 +38,7 @@
   
   <?php } elseif ($settings == "post_search_social") { ?>
 
-  <div style="float:left;width:620px;height:50px;margin-top:12px;">
+  <div id="header-social-block" style="float:left;width:620px;height:50px;margin-top:12px;">
 
   <!--BEGIN #subscribe-follow-->
 

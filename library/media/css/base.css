@@ -608,6 +608,41 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 	.featured-slider .slider-nav { opacity:1; width:32px; height:32px; line-height:30px; font-size:16px; margin-top:-16px; }
 }
 
+/* ---------------------------------------------------------------------
+   Genel mobil uyumluluk katmanı (2026-07-13)
+   Bu tema hiç responsive tasarlanmamış: viewport meta etiketi yoktu,
+   body{min-width:960px} + tüm layout dosyaları (fluid varyantlar dahil)
+   sabit/min px genişlik zorluyordu. header.php'ye viewport meta eklendi;
+   burada tüm layout/renk varyantlarını (2col-r, no-sidebar, fluid, vs.)
+   override etmek için !important kullanılıyor — çünkü custom-css.php
+   aktif layout dosyasını base.css'ten SONRA, ayrı bir <link> ile ekliyor
+   ve aynı özgüllükte olduğu için normalde bu satırları ezerdi.
+   --------------------------------------------------------------------- */
+@media (max-width:800px) {
+	body { min-width:0 !important; }
+
+	#wrapper, .container, .widgets-back-inside { width:100% !important; max-width:100% !important; min-width:0 !important; margin-left:0 !important; margin-right:0 !important; box-sizing:border-box !important; padding-left:15px !important; padding-right:15px !important; }
+
+	.hfeed, .aside { width:100% !important; min-width:0 !important; float:none !important; }
+
+	#header-social-block, #righttopcolumn { width:100% !important; float:none !important; height:auto !important; margin-top:8px !important; }
+
+	#search-text-box, #search-button-box { width:auto !important; min-width:0 !important; }
+
+	/* Hover ile açılan alt menüler dokunmatik ekranda çalışmaz; menüyü
+	   float'suz, her zaman açık/stacked bir listeye çeviriyoruz (JS gerekmez). */
+	.menu, .nav { width:100% !important; }
+	.nav li { float:none !important; width:100% !important; }
+	.nav ul { position:static !important; width:100% !important; -moz-box-shadow:none !important; box-shadow:none !important; }
+	.nav li li { padding-left:15px !important; }
+
+	.entry-content img, .entry-content .thumbnail img { max-width:100% !important; height:auto !important; }
+
+	.widgets-holder .widget { width:100% !important; }
+
+	#logo, #logo a { font-size:32px !important; }
+}
+
 
 .twitter-time {color:#888;}
 .twitter-status, .post-more {background:#eee;padding:3px 5px;-moz-border-radius:3px;-moz-box-shadow:0 1px 3px #bbb;}

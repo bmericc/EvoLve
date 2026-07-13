@@ -35,6 +35,7 @@
 	<!-- Meta Tags -->
 	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="generator" content="WordPress" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen, projection" />
