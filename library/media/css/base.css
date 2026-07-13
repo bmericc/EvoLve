@@ -317,7 +317,7 @@ h6 { font-size: 14px; line-height: 18px; }
 
 /* Footer */
 
-.footer-top {background:url('../images/footer-top.jpg') repeat-x;height:135px;position:absolute;top:0px;bottom:0;left:0;right:0;}
+.footer-top {background-color:#494c55;background-image:url('../images/footer-top.jpg');background-repeat:repeat-x;height:135px;position:absolute;top:0px;bottom:0;left:0;right:0;}
 .footer {position:relative;color:#ddd; background-color:#494c55;background-image:url('../images/footer.jpg'); padding:20px 0;}
 p#copyright {font-weight:bold;font-size:15px;text-shadow:0 1px 2px #333;}
 p#copyright .credits {font-style:italic;font-size:12px;}
