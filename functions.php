@@ -3019,4 +3019,33 @@ function evolve_sharethis() { ?>
           <a rel="nofollow" target="_blank" class="share-email" href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><?php _e( 'E-mail', 'evolve' ); ?></a>
           <a rel="nofollow" class="tipsytext" style="position:relative;top:3px;left:8px;" title="<?php _e( 'More options', 'evolve' ); ?>" target="_blank" href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/library/media/images/share-more.gif" /></a>
           </div>
-<?php } ?>
+<?php }
+
+// === PERFORMANS OPTİMİZASYONU ===
+
+// base.css render-blocking olmayacak: preload ile async yükleniyor
+add_filter( 'style_loader_tag', function( $tag, $handle, $href, $media ) {
+    if ( $handle === 'evolve-base' ) {
+        return '<link rel="preload" id="evolve-base-css" href="' . $href . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'" />' .
+               '<noscript><link rel="stylesheet" href="' . $href . '" /></noscript>';
+    }
+    return $tag;
+}, 10, 4 );
+
+add_action( 'wp_enqueue_scripts', function() {
+    wp_enqueue_style( 'evolve-base', get_template_directory_uri() . '/library/media/css/base.css', [], '1.3.0' );
+}, 1 );
+
+// JS dosyalarına defer stratejisi ekle (WP 6.0+ native API, render-blocking azaltır)
+add_action( 'wp_enqueue_scripts', function() {
+    foreach ( [ 'jquery-core', 'jquery-migrate', 'jquery',
+                'myjquery', 'myjqueryui', 'myjquerycookie', 'myjquerytipsy', 'myevolve',
+                'tipsy', 'fields', 'supersubs', 'superfish', 'screen_js', 'buttons',
+                'jquery_cycle', 'evolve_slider', 'hoverIntent' ] as $handle ) {
+        wp_script_add_data( $handle, 'strategy', 'defer' );
+    }
+}, 99 );
+
+// === PERFORMANS OPTİMİZASYONU SONU ===
+
+?>
