@@ -3007,6 +3007,27 @@ function evolve_social_image_meta() {
 
 
 
+/**
+ * og:logo — sitenin özel logosu varsa (WP site icon / custom_logo) basılır.
+ * Resmi OG standardı olmasa da bazı SEO araçları bu etiketi kontrol ediyor.
+ */
+add_action( 'wp_head', 'evolve_og_logo', 4 );
+function evolve_og_logo() {
+    $logo_id = get_theme_mod( 'custom_logo' );
+    if ( $logo_id ) {
+        $logo = wp_get_attachment_image_src( $logo_id, 'full' );
+        if ( $logo ) {
+            printf( '<meta property="og:logo" content="%s" />' . "\n", esc_url( $logo[0] ) );
+            return;
+        }
+    }
+
+    $icon_url = get_site_icon_url( 512 );
+    if ( $icon_url ) {
+        printf( '<meta property="og:logo" content="%s" />' . "\n", esc_url( $icon_url ) );
+    }
+}
+
  // Share This Buttons
 
 function evolve_sharethis() { ?>
