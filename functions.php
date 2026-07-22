@@ -2973,12 +2973,43 @@ add_custom_background();
 }  
 
 /**
- * Open Graph / Twitter Card görsel etiketleri.
- * Not (2026-07-12): Bu işlevi daha önce ayrı bir "Twitter Cards" eklentisi
- * sağlıyordu; eklenti kaldırıldığı için aynı çıktı doğrudan temaya taşındı.
- * Yoast SEO zaten og:title / og:description / og:url ve twitter:card /
- * twitter:label / twitter:data etiketlerini üretiyor, ama görsel etiketini
- * (og:image / twitter:image) üretmiyor — o eksik burada tamamlanıyor.
+ * X/LinkedIn AVIF sorunu: botlar AVIF formatını desteklemiyor.
+ * Bu helper AVIF URL'ini orijinal JPEG/PNG URL'e çevirir.
+ */
+function evolve_social_image_url( int $attachment_id ): ?string {
+	$orig = wp_get_original_image_url( $attachment_id );
+	if ( $orig && ! preg_match( '/\.avif$/i', $orig ) ) {
+		return $orig;
+	}
+
+	$meta = wp_get_attachment_metadata( $attachment_id );
+	if ( ! empty( $meta['sizes'] ) ) {
+		$upload_dir = wp_upload_dir();
+		$base       = trailingslashit( $upload_dir['baseurl'] ) . dirname( $meta['file'] ?? '' ) . '/';
+		foreach ( $meta['sizes'] as $size ) {
+			if ( isset( $size['file'] ) && ! preg_match( '/\.avif$/i', $size['file'] ) ) {
+				return $base . $size['file'];
+			}
+		}
+	}
+
+	$src = wp_get_attachment_image_src( $attachment_id, 'full' );
+	return $src ? $src[0] : null;
+}
+
+// Yoast'un og:image URL'ini AVIF'ten koru
+add_filter( 'wpseo_opengraph_image_url', function( $url ) {
+	if ( preg_match( '/\.avif$/i', $url ) ) {
+		$id = attachment_url_to_postid( $url );
+		if ( $id ) {
+			$url = evolve_social_image_url( $id ) ?? $url;
+		}
+	}
+	return $url;
+} );
+
+/**
+ * Open Graph / Twitter Card görsel etiketleri — AVIF yerine orijinal JPEG/PNG kullanır.
  */
 add_action( 'wp_head', 'evolve_social_image_meta', 5 );
 function evolve_social_image_meta() {
@@ -2986,22 +3017,21 @@ function evolve_social_image_meta() {
 		return;
 	}
 
-	$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-	if ( ! $image ) {
+	$thumb_id = get_post_thumbnail_id();
+	$url      = evolve_social_image_url( $thumb_id );
+	if ( ! $url ) {
 		return;
 	}
 
-	list( $url, $width, $height ) = $image;
+	$image = wp_get_attachment_image_src( $thumb_id, 'full' );
+	[ , $width, $height ] = $image ?: [ null, 0, 0 ];
 
-	// Not: twitter:creator (@alpindede) zaten Yoast SEO tarafından üretiliyor
-	// (Sosyal ayarları > Twitter kullanıcı adı) — burada tekrar edilmiyor,
-	// sadece Yoast'ın üretmediği sayısal creator:id ekleniyor.
 	printf( '<meta property="og:image" content="%s" />' . "\n", esc_url( $url ) );
-	printf( '<meta property="og:image:width" content="%d" />' . "\n", (int) $width );
-	printf( '<meta property="og:image:height" content="%d" />' . "\n", (int) $height );
+	if ( $width )  printf( '<meta property="og:image:width" content="%d" />' . "\n", (int) $width );
+	if ( $height ) printf( '<meta property="og:image:height" content="%d" />' . "\n", (int) $height );
 	printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $url ) );
-	printf( '<meta name="twitter:image:width" content="%d" />' . "\n", (int) $width );
-	printf( '<meta name="twitter:image:height" content="%d" />' . "\n", (int) $height );
+	if ( $width )  printf( '<meta name="twitter:image:width" content="%d" />' . "\n", (int) $width );
+	if ( $height ) printf( '<meta name="twitter:image:height" content="%d" />' . "\n", (int) $height );
 	echo '<meta name="twitter:creator:id" content="245714874" />' . "\n";
 }
 
