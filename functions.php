@@ -3006,7 +3006,7 @@ function evolve_social_image_url( int $attachment_id ): ?string {
 }
 
 // Yoast'un og:image URL'ini AVIF'ten koru — önce _cm_social_image_url dene
-add_filter( 'wpseo_opengraph_image_url', function( $url ) {
+add_filter( 'wpseo_opengraph_image', function( $url ) {
 	global $post;
 	if ( $post ) {
 		$cm_url = get_post_meta( $post->ID, '_cm_social_image_url', true );
