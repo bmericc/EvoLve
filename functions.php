@@ -3014,6 +3014,12 @@ add_filter( 'wpseo_opengraph_image_url', function( $url ) {
 			return $cm_url;
 		}
 	}
+	if ( preg_match( '/\.avif$/i', $url ) ) {
+		$id = attachment_url_to_postid( $url );
+		if ( $id ) {
+			$url = evolve_social_image_url( $id ) ?? $url;
+		}
+	}
 	return $url;
 } );
 
