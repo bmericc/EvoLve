@@ -1,7 +1,7 @@
 <?php   
 
 
-define( 'EVOLVE_THEME_VERSION', '1.3.1' );
+define( 'EVOLVE_THEME_VERSION', '1.3.2' );
 
 
 add_theme_support( 'automatic-feed-links' );

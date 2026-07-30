@@ -675,6 +675,13 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 	.featured-slider .featured-title a { font-size:20px; line-height:1.2; text-shadow:0 1px 2px #000; }
 	.featured-slider .slider-nav { width:40px; height:40px; line-height:38px; font-size:20px; margin-top:-20px; }
 
+	/* Listeleme seçenekleri masaüstünde yazıları 2/3 sütuna böler. Mobilde
+	   her yazı tam genişlikte tek satır akışında olmalıdır. */
+	.home .hentry, .archive .hentry, .search .hentry { width:100% !important; float:none !important; clear:both; margin-right:0 !important; padding-bottom:24px; }
+	.home .hentry .entry-content, .archive .hentry .entry-content, .search .hentry .entry-content { font-size:15px; }
+	.home .hentry img, .archive .hentry img, .search .hentry img { max-width:100px !important; }
+	.home .entry-title, .home .entry-title a, .archive .entry-title, .archive .entry-title a, .search .entry-title, .search .entry-title a { font-size:26px; line-height:1.15; }
+
 	.entry-content img, .entry-content .wp-caption, .entry-content .thumbnail img, .wp-caption img { max-width:100% !important; height:auto !important; }
 	.entry-content .alignleft, .entry-content .alignright { float:none; display:block; margin:10px auto; }
 	iframe, embed, object, video { max-width:100%; }
@@ -691,7 +698,7 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 
 	.widgets-holder .widget, .widgets-holder .header-1, .widgets-holder .header-2, .widgets-holder .header-3, .widgets-holder .header-4, .widgets-holder .footer-1, .widgets-holder .footer-2, .widgets-holder .footer-3, .widgets-holder .footer-4 { width:100% !important; float:none !important; margin-right:0 !important; }
 
-	#logo-image { float:none !important; display:block; max-width:100%; height:auto; margin:0 auto 12px !important; }
+	#logo-image { float:none !important; display:block; width:160px !important; max-width:70vw; height:auto; margin:0 auto 12px !important; }
 	#logo, #logo a { font-size:32px !important; line-height:1.1; overflow-wrap:anywhere; }
 	#tagline { padding-top:8px; line-height:1.4; }
 }
@@ -819,5 +826,4 @@ a.share-email:hover {background-position:0 -121px;}
 .ad-space h3 {color:#999;font-size:18px;line-height:20px;padding:0;letter-spacing:-1px;text-shadow:0 1px 1px #333}
 .ad-space:hover {background:#333;color:#eee;}
 .space-2 {width:915px;margin-left:auto;margin-right:auto;}
-
 

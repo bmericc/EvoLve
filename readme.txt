@@ -5,10 +5,19 @@ Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl
 
 Bu depo, alpindede.com için özelleştirilmiş bir EvoLve fork'udur (orijinal sürüm 1.2.3 taban alınmıştır).
 
-Current Version: 1.3.0
+Current Version: 1.3.2
 
 Fork Changelog
 --------------
+
+Version: 1.3.2 - 30/7/26
+ - Mobil ana sayfa, arşiv ve arama sonuçları masaüstü çoklu sütun düzeni yerine
+   tam genişlikte tek sütun olarak listelenir
+ - Mobil logo boyutu 160 px ile sınırlandı
+ - Tema CSS ve JavaScript isteklerine sürüm parametresi eklendi; tarayıcı
+   önbelleği tema sürümü değiştiğinde otomatik yenilenir
+ - Superfish ve eski kaydırma eklentileri güncel WordPress jQuery sürümüyle
+   uyumlu hâle getirildi
 
 Version: 1.3.0 - 13/7/26
  - Genel mobil uyumluluk (responsive) katmanı eklendi: viewport meta etiketi, sabit genişlikli
@@ -52,5 +61,4 @@ Support
 -------
 
 Do you enjoy this theme? Send your ideas - issues - wishes at http://theme4press.com/evolve or help in development by a donation. Thank you!
-
 
