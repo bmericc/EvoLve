@@ -618,29 +618,91 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
    aktif layout dosyasını base.css'ten SONRA, ayrı bir <link> ile ekliyor
    ve aynı özgüllükte olduğu için normalde bu satırları ezerdi.
    --------------------------------------------------------------------- */
+.mobile-menu-toggle { display:none; }
+
 @media (max-width:800px) {
+	*, *:before, *:after { box-sizing:border-box; }
+	html, body { width:100%; overflow-x:hidden; }
 	body { min-width:0 !important; }
 
 	#wrapper, .container, .widgets-back-inside { width:100% !important; max-width:100% !important; min-width:0 !important; margin-left:0 !important; margin-right:0 !important; box-sizing:border-box !important; padding-left:15px !important; padding-right:15px !important; }
+	.header[style] { width:auto !important; padding:16px 15px 20px !important; }
+	.header .container { padding:0 !important; }
+	.header .container > div[style*="float:right"] { float:none !important; margin:0 0 15px !important; text-align:center; }
+	.header .container > div[style*="float:right"] img { max-width:100% !important; height:auto !important; }
 
 	.hfeed, .aside { width:100% !important; min-width:0 !important; float:none !important; }
+	.aside { margin-top:28px; }
 
 	#header-social-block, #righttopcolumn { width:100% !important; float:none !important; height:auto !important; margin-top:8px !important; }
 
 	#search-text-box, #search-button-box { width:auto !important; min-width:0 !important; }
 
-	/* Hover ile açılan alt menüler dokunmatik ekranda çalışmaz; menüyü
-	   float'suz, her zaman açık/stacked bir listeye çeviriyoruz (JS gerekmez). */
-	.menu, .nav { width:100% !important; }
-	.nav li { float:none !important; width:100% !important; }
-	.nav ul { position:static !important; width:100% !important; -moz-box-shadow:none !important; box-shadow:none !important; }
-	.nav li li { padding-left:15px !important; }
+	/* Dokunmatik menü: alt bağlantılar bir düğme ile açılır; hover'a bağlı değildir. */
+	.menu { display:none; width:100% !important; margin:8px 0 0 !important; }
+	.menu.is-open { display:block; }
+	.mobile-menu-toggle { display:flex; align-items:center; gap:8px; width:100%; min-height:44px; padding:10px 14px; border:1px solid #0f85d7; border-radius:3px; background:#1f9ef6; color:#fff; font:700 14px/1 Arial, sans-serif; text-transform:uppercase; text-shadow:0 1px 2px #0a5182; cursor:pointer; }
+	.mobile-menu-toggle-icon, .mobile-menu-toggle-icon:before, .mobile-menu-toggle-icon:after { display:block; width:20px; height:2px; background:currentColor; content:""; }
+	.mobile-menu-toggle-icon { position:relative; }
+	.mobile-menu-toggle-icon:before { position:absolute; top:-6px; }
+	.mobile-menu-toggle-icon:after { position:absolute; top:6px; }
+	.nav { width:100% !important; padding:0 !important; }
+	.nav li { float:none !important; width:100% !important; border-bottom:1px solid #d9d9d9; }
+	.nav li:last-child { border-bottom:0; }
+	.nav li > a { padding:14px 48px 14px 12px !important; border:0 !important; background:#f5f5f5 !important; color:#333 !important; text-shadow:none !important; }
+	.nav li.current-menu-item > a, .nav li.current_page_item > a { background:#1f9ef6 !important; color:#fff !important; }
+	.nav li > ul { display:none; position:static !important; width:100% !important; margin:0 !important; border:0 !important; box-shadow:none !important; }
+	.nav li.submenu-open > ul { display:block; }
+	.nav li li > a { padding-left:28px !important; background:#e9e9e9 !important; }
+	.nav li li li > a { padding-left:44px !important; background:#dedede !important; }
+	.submenu-toggle { position:absolute; z-index:2; top:0; right:0; width:44px; height:44px; padding:0; border:0; border-left:1px solid #d1d1d1; background:transparent; color:#333; cursor:pointer; }
+	.submenu-toggle span, .submenu-toggle span:after { position:absolute; display:block; width:10px; height:2px; background:currentColor; content:""; }
+	.submenu-toggle span { top:21px; left:17px; }
+	.submenu-toggle span:after { transform:rotate(90deg); }
+	.submenu-open > .submenu-toggle span:after { transform:rotate(0); }
 
-	.entry-content img, .entry-content .thumbnail img { max-width:100% !important; height:auto !important; }
+	#slide_holder, .slide-container, ul.slides, ul.slides li.slide { width:100% !important; min-width:0 !important; height:auto !important; }
+	#slide_holder { min-height:150px; }
+	.space-2 { width:100% !important; }
+	/* Masaüstü için 960×420 üretilen hero görselleri mobilde kare kadrajda
+	   gösterilir. object-fit, görseli ezmeden alanı tamamen doldurur. */
+	.featured-slider { width:100%; margin-bottom:16px; }
+	.featured-slider .slider-cycle { aspect-ratio:1 / 1; height:auto !important; }
+	.featured-slider .slides, .featured-slider .slides figure, .featured-slider .slides figure a { height:100% !important; }
+	.featured-slider .slides figure a { display:block; }
+	.featured-slider .slides figure img { width:100%; height:100% !important; object-fit:cover; object-position:center; }
+	.featured-slider .featured-text { padding:16px 16px 34px; background:linear-gradient(transparent, rgba(0, 0, 0, .82)); }
+	.featured-slider .featured-title a { font-size:20px; line-height:1.2; text-shadow:0 1px 2px #000; }
+	.featured-slider .slider-nav { width:40px; height:40px; line-height:38px; font-size:20px; margin-top:-20px; }
 
-	.widgets-holder .widget { width:100% !important; }
+	.entry-content img, .entry-content .wp-caption, .entry-content .thumbnail img, .wp-caption img { max-width:100% !important; height:auto !important; }
+	.entry-content .alignleft, .entry-content .alignright { float:none; display:block; margin:10px auto; }
+	iframe, embed, object, video { max-width:100%; }
+	.entry-title, .entry-title a { font-size:30px; line-height:1.1; letter-spacing:-1px; }
+	h1 { font-size:34px; line-height:1.1; letter-spacing:-2px; }
+	h2 { font-size:29px; line-height:1.15; letter-spacing:-1px; }
+	h3 { font-size:25px; line-height:1.2; letter-spacing:-1px; }
+	table { display:block; max-width:100%; overflow-x:auto; }
+	#allowed-tags, #respond textarea, #form-section-author, #form-section-email, #form-section-url { width:100% !important; max-width:100%; }
+	.comment-list { margin-left:0; margin-right:0; }
+	.comment-list .children { margin-left:12px; }
+	.avatar { max-width:64px; height:auto; margin-left:10px; }
+	.gallery-item { width:50% !important; }
 
-	#logo, #logo a { font-size:32px !important; }
+	.widgets-holder .widget, .widgets-holder .header-1, .widgets-holder .header-2, .widgets-holder .header-3, .widgets-holder .header-4, .widgets-holder .footer-1, .widgets-holder .footer-2, .widgets-holder .footer-3, .widgets-holder .footer-4 { width:100% !important; float:none !important; margin-right:0 !important; }
+
+	#logo-image { float:none !important; display:block; max-width:100%; height:auto; margin:0 auto 12px !important; }
+	#logo, #logo a { font-size:32px !important; line-height:1.1; overflow-wrap:anywhere; }
+	#tagline { padding-top:8px; line-height:1.4; }
+}
+
+@media (max-width:480px) {
+	#wrapper, .container, .widgets-back-inside { padding-left:12px !important; padding-right:12px !important; }
+	.entry-title, .entry-title a { font-size:26px; }
+	.entry-content { font-size:16px; margin-top:22px; }
+	.gallery-item { width:100% !important; }
+	.featured-slider .featured-text { padding:10px 14px 28px; }
+	.featured-slider .featured-title a { font-size:17px; }
 }
 
 
@@ -757,8 +819,5 @@ a.share-email:hover {background-position:0 -121px;}
 .ad-space h3 {color:#999;font-size:18px;line-height:20px;padding:0;letter-spacing:-1px;text-shadow:0 1px 1px #333}
 .ad-space:hover {background:#333;color:#eee;}
 .space-2 {width:915px;margin-left:auto;margin-right:auto;}
-
-
-
 
 

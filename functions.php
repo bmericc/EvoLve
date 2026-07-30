@@ -3100,6 +3100,7 @@ add_filter( 'style_loader_tag', function( $tag, $handle, $href, $media ) {
 
 add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( 'evolve-base', get_template_directory_uri() . '/library/media/css/base.css', [], '1.3.0' );
+    wp_enqueue_script( 'evolve-mobile-navigation', get_template_directory_uri() . '/library/media/js/mobile-navigation.js', [], '1.0.0', true );
 }, 1 );
 
 // JS dosyalarına defer stratejisi ekle (WP 6.0+ native API, render-blocking azaltır)
@@ -3107,7 +3108,7 @@ add_action( 'wp_enqueue_scripts', function() {
     foreach ( [ 'jquery-core', 'jquery-migrate', 'jquery',
                 'myjquery', 'myjqueryui', 'myjquerycookie', 'myjquerytipsy', 'myevolve',
                 'tipsy', 'fields', 'supersubs', 'superfish', 'screen_js', 'buttons',
-                'jquery_cycle', 'evolve_slider', 'hoverIntent' ] as $handle ) {
+                'jquery_cycle', 'evolve_slider', 'hoverIntent', 'evolve-mobile-navigation' ] as $handle ) {
         wp_script_add_data( $handle, 'strategy', 'defer' );
     }
 }, 99 );

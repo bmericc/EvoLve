@@ -182,15 +182,22 @@
     
      <div class="menu-middle"></div>
     
-    <?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
+     <button class="mobile-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+       <span class="mobile-menu-toggle-icon" aria-hidden="true"></span>
+       <span><?php _e( 'Menu', 'evolve' ); ?></span>
+     </button>
+
+     <?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
  
      
-     <?php wp_nav_menu( array( 'container_class' => 'menu', 'menu_class' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
+     <?php wp_nav_menu( array( 'container_class' => 'menu', 'container_id' => 'primary-navigation', 'menu_class' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
       
       <?php } else { ?>
       
       
-	        <?php wp_page_menu( 'show_home=1' ); ?>
+	        <div id="primary-navigation" class="menu">
+	          <?php wp_page_menu( 'show_home=1&menu_class=nav' ); ?>
+	        </div>
           
           <?php } ?>  
        
@@ -320,4 +327,3 @@ echo '<div style="clear:both;text-align:center;margin:10px 0 15px 0;overflow:hid
   
     <?php } ?>  
 
-	
