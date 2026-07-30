@@ -13,13 +13,13 @@ function evolve_media() {
 	if( is_admin() ) return;
 	wp_enqueue_script( 'hoverIntent' );
   wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'tipsy', JS . '/tipsy.js', array( 'jquery' ) );
-  wp_enqueue_script( 'fields', JS . '/fields.js', array( 'jquery' ) );
-  if ($options['evl_pos_button'] == "disable" || $options['evl_pos_button'] == "") {} else { wp_enqueue_script( 'jquery_scroll', JS . '/jquery.scroll.pack.js', array( 'jquery' ) ); }
-	wp_enqueue_script( 'supersubs', JS . '/supersubs.js', array( 'jquery' ) );
-	wp_enqueue_script( 'superfish', JS . '/superfish.js', array( 'jquery', 'hoverIntent' ) );
-	wp_enqueue_script( 'screen_js', JS . '/screen.js', array( 'jquery', 'supersubs', 'superfish' ) );
-  wp_enqueue_script( 'buttons', JS . '/buttons.js', array( 'jquery' ) );
+	wp_enqueue_script( 'tipsy', JS . '/tipsy.js', array( 'jquery' ), EVOLVE_THEME_VERSION );
+  wp_enqueue_script( 'fields', JS . '/fields.js', array( 'jquery' ), EVOLVE_THEME_VERSION );
+  if ($options['evl_pos_button'] == "disable" || $options['evl_pos_button'] == "") {} else { wp_enqueue_script( 'jquery_scroll', JS . '/jquery.scroll.pack.js', array( 'jquery' ), EVOLVE_THEME_VERSION ); }
+	wp_enqueue_script( 'supersubs', JS . '/supersubs.js', array( 'jquery' ), EVOLVE_THEME_VERSION );
+	wp_enqueue_script( 'superfish', JS . '/superfish.js', array( 'jquery', 'hoverIntent' ), EVOLVE_THEME_VERSION );
+	wp_enqueue_script( 'screen_js', JS . '/screen.js', array( 'jquery', 'supersubs', 'superfish' ), EVOLVE_THEME_VERSION );
+  wp_enqueue_script( 'buttons', JS . '/buttons.js', array( 'jquery' ), EVOLVE_THEME_VERSION );
   if (isset($_SERVER['HTTP_USER_AGENT']) && 
     (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false)) {
   wp_enqueue_style( 'iecss', WP_CONTENT_URL . '/themes/alpindede/library/media/css/ie.css' );}
@@ -37,8 +37,8 @@ function evolve_slider_scripts() {
 	if ( is_admin() ) return;
 	$options = get_option( 'evolve' );
 	if ( ( is_home() || is_front_page() ) && ! empty( $options['evl_new_slider_enable'] ) ) {
-		wp_register_script( 'jquery_cycle', JS . '/jquery.cycle.all.min.js', array( 'jquery' ), '2.9999.5', true );
-		wp_enqueue_script( 'evolve_slider', JS . '/evolve-slider-settings.js', array( 'jquery_cycle' ), false, true );
+		wp_register_script( 'jquery_cycle', JS . '/jquery.cycle.all.min.js', array( 'jquery' ), EVOLVE_THEME_VERSION, true );
+		wp_enqueue_script( 'evolve_slider', JS . '/evolve-slider-settings.js', array( 'jquery_cycle' ), EVOLVE_THEME_VERSION, true );
 		wp_localize_script( 'evolve_slider', 'evolve_slider_value', array(
 			'transition_effect' => ! empty( $options['evl_new_slider_effect'] ) ? $options['evl_new_slider_effect'] : 'fade',
 			'transition_delay'  => ! empty( $options['evl_new_slider_delay'] ) ? intval( $options['evl_new_slider_delay'] ) : 5000,

@@ -1,6 +1,8 @@
 <?php   
 
 
+define( 'EVOLVE_THEME_VERSION', '1.3.1' );
+
 
 add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
@@ -65,10 +67,10 @@ function theme_options_init() {
   add_settings_section('ud_main', '', 'ud_section_text', 'ud');
   add_settings_field('ud_filename', '', 'ud_setting_filename', 'ud', 'ud_main');  
 	wp_register_script('myjquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"), false, '1.4.4');
-  wp_register_script('myjqueryui', get_template_directory_uri() . '/library/media/js/jquery-ui.js');
-  wp_register_script('myjquerycookie', get_template_directory_uri() . '/library/media/js/jquery-cookie.js');
-  wp_register_script('myjquerytipsy', get_template_directory_uri() . '/library/media/js/tipsy.js');
-  wp_register_script('myevolve', get_template_directory_uri() . '/library/media/js/evolve.js');
+	wp_register_script('myjqueryui', get_template_directory_uri() . '/library/media/js/jquery-ui.js', array(), EVOLVE_THEME_VERSION);
+  wp_register_script('myjquerycookie', get_template_directory_uri() . '/library/media/js/jquery-cookie.js', array(), EVOLVE_THEME_VERSION);
+  wp_register_script('myjquerytipsy', get_template_directory_uri() . '/library/media/js/tipsy.js', array(), EVOLVE_THEME_VERSION);
+  wp_register_script('myevolve', get_template_directory_uri() . '/library/media/js/evolve.js', array(), EVOLVE_THEME_VERSION);
   wp_register_style('mycss', get_template_directory_uri() . '/library/media/css/theme-options.css');
 }
 
@@ -3099,8 +3101,8 @@ add_filter( 'style_loader_tag', function( $tag, $handle, $href, $media ) {
 }, 10, 4 );
 
 add_action( 'wp_enqueue_scripts', function() {
-    wp_enqueue_style( 'evolve-base', get_template_directory_uri() . '/library/media/css/base.css', [], '1.3.0' );
-    wp_enqueue_script( 'evolve-mobile-navigation', get_template_directory_uri() . '/library/media/js/mobile-navigation.js', [], '1.0.0', true );
+    wp_enqueue_style( 'evolve-base', get_template_directory_uri() . '/library/media/css/base.css', [], EVOLVE_THEME_VERSION );
+    wp_enqueue_script( 'evolve-mobile-navigation', get_template_directory_uri() . '/library/media/js/mobile-navigation.js', [], EVOLVE_THEME_VERSION, true );
 }, 1 );
 
 // JS dosyalarına defer stratejisi ekle (WP 6.0+ native API, render-blocking azaltır)
