@@ -13,13 +13,13 @@ function evolve_media() {
 	if( is_admin() ) return;
 	wp_enqueue_script( 'hoverIntent' );
   wp_enqueue_script( 'jquery' );
-  wp_enqueue_script( 'tipsy', JS . '/tipsy.js' );
-  wp_enqueue_script( 'fields', JS . '/fields.js' );
-  if ($options['evl_pos_button'] == "disable" || $options['evl_pos_button'] == "") {} else { wp_enqueue_script( 'jquery_scroll', JS . '/jquery.scroll.pack.js' ); }      
-	wp_enqueue_script( 'supersubs', JS . '/supersubs.js' );
-	wp_enqueue_script( 'superfish', JS . '/superfish.js' );
-	wp_enqueue_script( 'screen_js', JS . '/screen.js' );
-  wp_enqueue_script( 'buttons', JS . '/buttons.js' );
+	wp_enqueue_script( 'tipsy', JS . '/tipsy.js', array( 'jquery' ) );
+  wp_enqueue_script( 'fields', JS . '/fields.js', array( 'jquery' ) );
+  if ($options['evl_pos_button'] == "disable" || $options['evl_pos_button'] == "") {} else { wp_enqueue_script( 'jquery_scroll', JS . '/jquery.scroll.pack.js', array( 'jquery' ) ); }
+	wp_enqueue_script( 'supersubs', JS . '/supersubs.js', array( 'jquery' ) );
+	wp_enqueue_script( 'superfish', JS . '/superfish.js', array( 'jquery', 'hoverIntent' ) );
+	wp_enqueue_script( 'screen_js', JS . '/screen.js', array( 'jquery', 'supersubs', 'superfish' ) );
+  wp_enqueue_script( 'buttons', JS . '/buttons.js', array( 'jquery' ) );
   if (isset($_SERVER['HTTP_USER_AGENT']) && 
     (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false)) {
   wp_enqueue_style( 'iecss', WP_CONTENT_URL . '/themes/alpindede/library/media/css/ie.css' );}

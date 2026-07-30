@@ -55,7 +55,10 @@
  */
 ;(function( $ ){
 	
-	var $scrollTo = $.scrollTo = function( target, duration, settings ){
+	// jQuery 1.9+ $.browser nesnesini kaldırdı. Safari için eski özel
+	// davranışı yalnızca özellik mevcut olduğunda kullan.
+	var browser = $.browser || {},
+		$scrollTo = $.scrollTo = function( target, duration, settings ){
 		$(window).scrollTo( target, duration, settings );
 	};
 
@@ -82,7 +85,7 @@
 
 			var doc = (elem.contentWindow || elem).document || elem.ownerDocument || elem;
 			
-			return $.browser.safari || doc.compatMode == 'BackCompat' ?
+			return browser.safari || doc.compatMode == 'BackCompat' ?
 				doc.body : 
 				doc.documentElement;
 		});

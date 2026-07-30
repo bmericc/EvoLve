@@ -1,5 +1,5 @@
 /*<![CDATA[*/
-$(function(){
+jQuery(function($){
 
 //Get our elements for faster access and set overlay width
 var div = $('div.sc_menu'),
@@ -24,4 +24,4 @@ var left = (e.pageX - div.offset().left) * (ulWidth-divWidth) / divWidth;
 div.scrollLeft(left);
 });
 });
-/*]]>*/ 
+/*]]>*/
