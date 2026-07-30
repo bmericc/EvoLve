@@ -38,8 +38,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="<?php echo CSS . '/print.css'; ?>" type="text/css" media="print" />
+	<link rel="stylesheet" href="<?php echo esc_url( add_query_arg( 'ver', EVOLVE_THEME_VERSION, get_stylesheet_uri() ) ); ?>" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="<?php echo esc_url( add_query_arg( 'ver', EVOLVE_THEME_VERSION, CSS . '/print.css' ) ); ?>" type="text/css" media="print" />
   
 
   <!-- Custom Stylesheets -->
@@ -326,4 +326,3 @@ echo '<div style="clear:both;text-align:center;margin:10px 0 15px 0;overflow:hid
   <?php } ?>
   
     <?php } ?>  
-
