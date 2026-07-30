@@ -20,6 +20,50 @@ function evolve_media() {
 	wp_enqueue_script( 'superfish', JS . '/superfish.js', array( 'jquery', 'hoverIntent' ), EVOLVE_THEME_VERSION );
 	wp_enqueue_script( 'screen_js', JS . '/screen.js', array( 'jquery', 'supersubs', 'superfish' ), EVOLVE_THEME_VERSION );
   wp_enqueue_script( 'buttons', JS . '/buttons.js', array( 'jquery' ), EVOLVE_THEME_VERSION );
+	wp_add_inline_script( 'tipsy', <<<'JS'
+(function () {
+	function initEvolveInteractions() {
+		if (!window.jQuery) {
+			return;
+		}
+
+		jQuery(function ($) {
+			$('div.post').on('mouseenter', function () {
+				$(this).find('span.edit-post').css('visibility', 'visible');
+			}).on('mouseleave', function () {
+				$(this).find('span.edit-post').css('visibility', 'hidden');
+			});
+
+			$('div.type-page').on('mouseenter', function () {
+				$(this).find('span.edit-page').css('visibility', 'visible');
+			}).on('mouseleave', function () {
+				$(this).find('span.edit-page').css('visibility', 'hidden');
+			});
+
+			$('div.type-attachment').on('mouseenter', function () {
+				$(this).find('span.edit-post').css('visibility', 'visible');
+			}).on('mouseleave', function () {
+				$(this).find('span.edit-post').css('visibility', 'hidden');
+			});
+
+			$('li.comment').on('mouseenter', function () {
+				$(this).find('span.edit-comment').css('visibility', 'visible');
+			}).on('mouseleave', function () {
+				$(this).find('span.edit-comment').css('visibility', 'hidden');
+			});
+
+			$('.tipsytext').tipsy({ gravity: 'n', fade: true, offset: 0, opacity: 1 });
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initEvolveInteractions);
+	} else {
+		initEvolveInteractions();
+	}
+}());
+JS
+	, 'after' );
   if (isset($_SERVER['HTTP_USER_AGENT']) && 
     (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false)) {
   wp_enqueue_style( 'iecss', WP_CONTENT_URL . '/themes/alpindede/library/media/css/ie.css' );}

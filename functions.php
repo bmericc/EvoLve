@@ -1,7 +1,7 @@
 <?php   
 
 
-define( 'EVOLVE_THEME_VERSION', '1.3.2' );
+define( 'EVOLVE_THEME_VERSION', '1.3.3' );
 
 
 add_theme_support( 'automatic-feed-links' );
@@ -2922,44 +2922,9 @@ function addDashboardWidgets() {
 		}   
 
 
-function footer_hooks() { ?>
-
-
-<script type="text/javascript" charset="utf-8">
-var $jx = jQuery.noConflict();
-  $jx("div.post").mouseover(function() {
-    $jx(this).find("span.edit-post").css('visibility', 'visible');
-  }).mouseout(function(){
-    $jx(this).find("span.edit-post").css('visibility', 'hidden');
-  });
-  
-    $jx("div.type-page").mouseover(function() {
-    $jx(this).find("span.edit-page").css('visibility', 'visible');
-  }).mouseout(function(){
-    $jx(this).find("span.edit-page").css('visibility', 'hidden');
-  });
-  
-      $jx("div.type-attachment").mouseover(function() {
-    $jx(this).find("span.edit-post").css('visibility', 'visible');
-  }).mouseout(function(){
-    $jx(this).find("span.edit-post").css('visibility', 'hidden');
-  });
-  
-  $jx("li.comment").mouseover(function() {
-    $jx(this).find("span.edit-comment").css('visibility', 'visible');
-  }).mouseout(function(){
-    $jx(this).find("span.edit-comment").css('visibility', 'hidden');
-  });
-</script> 
-
-<script type="text/javascript" charset="utf-8">
-var $j = jQuery.noConflict();
-  $j(document).ready(function(){  
-    $j('.tipsytext').tipsy({gravity:'n',fade:true,offset:0,opacity:1});
-   });
-   </script> 
-
-<?php echo evolve_copy(); }
+function footer_hooks() {
+	echo evolve_copy();
+}
 
 
 /* Redirect after activation */

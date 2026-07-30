@@ -5,10 +5,14 @@ Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl
 
 Bu depo, alpindede.com için özelleştirilmiş bir EvoLve fork'udur (orijinal sürüm 1.2.3 taban alınmıştır).
 
-Current Version: 1.3.2
+Current Version: 1.3.3
 
 Fork Changelog
 --------------
+
+Version: 1.3.3 - 30/7/26
+ - Footer içi jQuery kodu, jQuery ve Tipsy eklentisi yüklendikten sonra
+   WordPress betik kuyruğu üzerinden çalıştırılır
 
 Version: 1.3.2 - 30/7/26
  - Mobil ana sayfa, arşiv ve arama sonuçları masaüstü çoklu sütun düzeni yerine
@@ -61,4 +65,3 @@ Support
 -------
 
 Do you enjoy this theme? Send your ideas - issues - wishes at http://theme4press.com/evolve or help in development by a donation. Thank you!
-

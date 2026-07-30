@@ -184,7 +184,7 @@
     
      <button class="mobile-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
        <span class="mobile-menu-toggle-icon" aria-hidden="true"></span>
-       <span><?php _e( 'Menu', 'evolve' ); ?></span>
+       <span>Menü</span>
      </button>
 
      <?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
