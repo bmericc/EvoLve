@@ -642,6 +642,11 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 	.menu { display:none; width:100% !important; margin:8px 0 0 !important; }
 	.menu.is-open { display:block; }
 	.mobile-menu-toggle { display:flex; align-items:center; gap:8px; width:100%; min-height:44px; padding:10px 14px; border:1px solid #0f85d7; border-radius:3px; background:#1f9ef6; color:#fff; font:700 14px/1 Arial, sans-serif; text-transform:uppercase; text-shadow:0 1px 2px #0a5182; cursor:pointer; }
+	/* AMP'de tema JavaScript'i kasıtlı olarak yüklenmez. Bu yüzden mobil menü
+	   doğrudan görünür; alt menüler de bağlantı olarak erişilebilir kalır. */
+	.evolve-amp .mobile-menu-toggle { display:none; }
+	.evolve-amp .menu { display:block; }
+	.evolve-amp .nav li > ul { display:block; }
 	.mobile-menu-toggle-icon, .mobile-menu-toggle-icon:before, .mobile-menu-toggle-icon:after { display:block; width:20px; height:2px; background:currentColor; content:""; }
 	.mobile-menu-toggle-icon { position:relative; }
 	.mobile-menu-toggle-icon:before { position:absolute; top:-6px; }
@@ -826,4 +831,3 @@ a.share-email:hover {background-position:0 -121px;}
 .ad-space h3 {color:#999;font-size:18px;line-height:20px;padding:0;letter-spacing:-1px;text-shadow:0 1px 1px #333}
 .ad-space:hover {background:#333;color:#eee;}
 .space-2 {width:915px;margin-left:auto;margin-right:auto;}
-

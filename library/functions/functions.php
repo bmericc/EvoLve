@@ -10,7 +10,7 @@
  
 function evolve_media() {
   $options = get_option('evolve');
-	if( is_admin() ) return;
+	if ( is_admin() || evolve_is_amp_request() ) return;
 	wp_enqueue_script( 'hoverIntent' );
   wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'tipsy', JS . '/tipsy.js', array( 'jquery' ), EVOLVE_THEME_VERSION );
@@ -78,7 +78,7 @@ JS
  */
 if ( ! function_exists( 'evolve_slider_scripts' ) ) :
 function evolve_slider_scripts() {
-	if ( is_admin() ) return;
+	if ( is_admin() || evolve_is_amp_request() ) return;
 	$options = get_option( 'evolve' );
 	if ( ( is_home() || is_front_page() ) && ! empty( $options['evl_new_slider_enable'] ) ) {
 		wp_register_script( 'jquery_cycle', JS . '/jquery.cycle.all.min.js', array( 'jquery' ), EVOLVE_THEME_VERSION, true );

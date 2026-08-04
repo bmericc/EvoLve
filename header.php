@@ -47,7 +47,7 @@
   <?php get_template_part('custom-css', 'header'); ?>
   
 	<!-- Theme Hook -->
-  <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); // loads the javascript required for threaded comments ?>  
+  <?php if ( is_singular() && ! evolve_is_amp_request() ) wp_enqueue_script( 'comment-reply' ); // loads the javascript required for threaded comments ?>
   
   <!-- Bahri Look Start -->
 	<?php wp_head(); ?>   

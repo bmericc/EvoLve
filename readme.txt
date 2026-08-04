@@ -5,10 +5,14 @@ Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl
 
 Bu depo, alpindede.com için özelleştirilmiş bir EvoLve fork'udur (orijinal sürüm 1.2.3 taban alınmıştır).
 
-Current Version: 1.3.3
+Current Version: 1.3.4
 
 Fork Changelog
 --------------
+
+Version: 1.3.4 - 4/8/26
+ - AMP sayfalarında jQuery, Superfish ve diğer tema JavaScript dosyaları
+   yüklenmez; mobil menü JavaScript olmadan erişilebilir kalır
 
 Version: 1.3.3 - 30/7/26
  - Footer içi jQuery kodu, jQuery ve Tipsy eklentisi yüklendikten sonra

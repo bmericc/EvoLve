@@ -1,7 +1,23 @@
 <?php   
 
 
-define( 'EVOLVE_THEME_VERSION', '1.3.3' );
+define( 'EVOLVE_THEME_VERSION', '1.3.4' );
+
+/**
+ * Official AMP plugin requests must not include arbitrary theme JavaScript.
+ */
+function evolve_is_amp_request() {
+	return function_exists( 'amp_is_request' ) && amp_is_request();
+}
+
+function evolve_amp_body_class( $classes ) {
+	if ( evolve_is_amp_request() ) {
+		$classes[] = 'evolve-amp';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'evolve_amp_body_class' );
 
 
 add_theme_support( 'automatic-feed-links' );
@@ -3067,7 +3083,9 @@ add_filter( 'style_loader_tag', function( $tag, $handle, $href, $media ) {
 
 add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( 'evolve-base', get_template_directory_uri() . '/library/media/css/base.css', [], EVOLVE_THEME_VERSION );
-    wp_enqueue_script( 'evolve-mobile-navigation', get_template_directory_uri() . '/library/media/js/mobile-navigation.js', [], EVOLVE_THEME_VERSION, true );
+    if ( ! evolve_is_amp_request() ) {
+        wp_enqueue_script( 'evolve-mobile-navigation', get_template_directory_uri() . '/library/media/js/mobile-navigation.js', [], EVOLVE_THEME_VERSION, true );
+    }
 }, 1 );
 
 // JS dosyalarına defer stratejisi ekle (WP 6.0+ native API, render-blocking azaltır)
