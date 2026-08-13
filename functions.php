@@ -831,6 +831,18 @@ array(  "name" => "TikTok",
 
 array( "type" => "close"),
 
+// Threads
+
+array( "type" => "open"),
+
+array(  "name" => "Threads",
+        "desc" => "Insert your Threads username (without @)",
+        "id" => $shortname."_threads",
+        "type" => "text11",
+        "std" => ""),
+
+array( "type" => "close"),
+
 array( "type" => "close-tab"),
 
 
@@ -1527,6 +1539,24 @@ case 'text10':
 <td><small><?php echo $value['desc']; ?></small></td>
 </tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr>
 
+<?php
+break;
+case 'text11':
+?>
+
+<tr>
+
+<td width="15%" rowspan="2" valign="middle"><strong>Threads</strong>
+
+</td>
+
+<td width="85%" id="focus-input"><input title="If your Threads page is <strong>https://threads.com/@example</strong>, insert only <strong>example</strong>" style="width:300px;" name="<?php echo 'evolve['.$value['id'].']'; ?>" id="<?php echo 'evolve['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" /></td>
+
+</tr>
+
+<tr>
+<td><small><?php echo $value['desc']; ?></small></td>
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr>
 
 <?php
 break;
@@ -2704,6 +2734,8 @@ function theme_options_validate( $input ) {
    $input['evl_linkedin'] = wp_filter_nohtml_kses( $input['evl_linkedin'] );
 
    $input['evl_tiktok'] = wp_filter_nohtml_kses( $input['evl_tiktok'] );
+
+   $input['evl_threads'] = wp_filter_nohtml_kses( $input['evl_threads'] );
 
 
 

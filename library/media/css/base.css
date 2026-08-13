@@ -774,12 +774,13 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
    Instagram/WhatsApp/TikTok eklendi; Twitter ikonu X (2022 rebrand) ve
    YouTube ikonu güncel play-butonu logosuna güncellendi. Eski paylaşımlı
    sprite yerine kendi ayrı 32x32 görselleri kullanılıyor. */
-#instagram, #whatsapp, #tiktok, #twitter, #youtube {display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;background-repeat:no-repeat;background-position:left top;}
+#instagram, #whatsapp, #tiktok, #twitter, #youtube, #threads {display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;background-repeat:no-repeat;background-position:left top;}
 #instagram {background-image:url("../images/social-instagram.png");}
 #whatsapp {background-image:url("../images/social-whatsapp.png");}
 #twitter {background-image:url("../images/social-x.png");}
 #youtube {background-image:url("../images/social-youtube.png");}
 #tiktok {background-image:url("../images/social-tiktok.png");}
+#threads {background-image:url("../images/social-threads.png");}
 
 div.sc_menu {position: relative;z-index:0;height: 32px;width: 315px;overflow: hidden;}
 ul.sc_menu {display: block;height: 32px;width: 1800px;padding: 0 0 0 10px;margin: 0;list-style: none;}
