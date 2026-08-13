@@ -763,24 +763,27 @@ ul.slides li.slide {position:absolute; top:0px; width:620px;height:150px;display
 
 .social-title {font-weight:bold;float:left;font-size:20px;letter-spacing:-1px;margin-right:10px;text-shadow:0 1px 2px #fff;}
 
-#rss, #email-newsletter, #facebook, #skype, #flickr, #linkedin {background:url("../images/social-buttons.png") no-repeat scroll left top transparent;display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;}
+/* Kullanılmayan eski platformlar (2011 sprite'ta kaldı, aktif değil) */
+#email-newsletter, #skype, #flickr {background:url("../images/social-buttons.png") no-repeat scroll left top transparent;display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;}
 #email-newsletter {background-position:0 -32px;}
-#facebook {background-position:0 -96px;}
 #skype {background-position:0 -192px;}
 #flickr {background-position:0 -256px;}
-#linkedin {background-position:0 -288px;}
 
-/* Güncel platform ikonları (2026-07-13): Google Buzz/MySpace kaldırıldı,
+/* Güncel platform ikonları (2026-07-13, 2026-08-13): Google Buzz/MySpace kaldırıldı,
    Instagram/WhatsApp/TikTok eklendi; Twitter ikonu X (2022 rebrand) ve
-   YouTube ikonu güncel play-butonu logosuna güncellendi. Eski paylaşımlı
-   sprite yerine kendi ayrı 32x32 görselleri kullanılıyor. */
-#instagram, #whatsapp, #tiktok, #twitter, #youtube, #threads {display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;background-repeat:no-repeat;background-position:left top;}
+   YouTube ikonu güncel play-butonu logosuna güncellendi. Facebook/LinkedIn/RSS
+   de 2011 sprite'tan modern rozet stiline geçirildi. Eski paylaşımlı sprite
+   yerine kendi ayrı 32x32 görselleri kullanılıyor. */
+#instagram, #whatsapp, #tiktok, #twitter, #youtube, #threads, #facebook, #linkedin, #rss {display:block;font:italic 13px arial;height:32px;margin-right:5px;width:32px;background-repeat:no-repeat;background-position:left top;}
 #instagram {background-image:url("../images/social-instagram.png");}
 #whatsapp {background-image:url("../images/social-whatsapp.png");}
 #twitter {background-image:url("../images/social-x.png");}
 #youtube {background-image:url("../images/social-youtube.png");}
 #tiktok {background-image:url("../images/social-tiktok.png");}
 #threads {background-image:url("../images/social-threads.png");}
+#facebook {background-image:url("../images/social-facebook.png");}
+#linkedin {background-image:url("../images/social-linkedin.png");}
+#rss {background-image:url("../images/social-rss.png");}
 
 div.sc_menu {position: relative;z-index:0;height: 32px;width: 315px;overflow: hidden;}
 ul.sc_menu {display: block;height: 32px;width: 1800px;padding: 0 0 0 10px;margin: 0;list-style: none;}
