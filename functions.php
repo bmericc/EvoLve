@@ -21,6 +21,7 @@ add_filter( 'body_class', 'evolve_amp_body_class' );
 
 
 add_theme_support( 'automatic-feed-links' );
+add_theme_support( 'title-tag' ); // WP/Yoast standart <title> yönetimi; header.php'de manuel title yok artık
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 100, 100, true );
 add_image_size( 'single-featured', 610, 0, false ); // tekli yazı/sayfa öne çıkan görsel (orantılı, kırpma yok)

@@ -6,31 +6,16 @@
  * @subpackage Template
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <!--BEGIN html-->
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>>
 
 
 <!--BEGIN head-->
-<head profile="<?php get_profile_uri(); ?>">
+<head>
 
-	<title><?php
-
-	global $page, $paged;
-
-	wp_title( '-', true, 'right' );
-
-	bloginfo( 'name' );
-
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " - $site_description";
-
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' - ' . sprintf( __( 'Page %s', 'evolve' ), max( $paged, $page ) );
-
-	?></title>
+	<!-- <title> artık add_theme_support('title-tag') ile WP/Yoast tarafından enjekte ediliyor -->
 
 	<!-- Meta Tags -->
 	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo('charset'); ?>" />
@@ -38,7 +23,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="<?php echo esc_url( add_query_arg( 'ver', EVOLVE_THEME_VERSION, get_stylesheet_uri() ) ); ?>" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="<?php echo esc_url( add_query_arg( 'ver', EVOLVE_THEME_VERSION, get_stylesheet_uri() ) ); ?>" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo esc_url( add_query_arg( 'ver', EVOLVE_THEME_VERSION, CSS . '/print.css' ) ); ?>" type="text/css" media="print" />
   
 
@@ -105,7 +90,7 @@
   
     <?php $options = get_option('evolve');
     if ($file = $options['file']) {
-        echo "<a href=".home_url()."><img id='logo-image' src='/wp-content/uploads/2013/12/alpindede_logo.png' /></a>";
+        echo "<a href=".home_url()."><img id='logo-image' src='/wp-content/uploads/2013/12/alpindede_logo.png' alt='".esc_attr( get_bloginfo( 'name' ) )."' /></a>";
     }
       ?>  
      
@@ -281,13 +266,16 @@
     
  $ad_space_2 = $options['evl_space_2']; 
 echo '<div style="clear:both;text-align:center;margin:10px 0 15px 0;overflow:hidden;">'.stripslashes($ad_space_2).'</div>';
- 
- } 
-?> 
-      
-      
-      </div> 
-       
+
+ }
+?>
+
+
+      </div>
+      <!--END .menu-back-->
+      </div>
+      <!--END .menu-container-->
+
        	<!--BEGIN .content-top-->
        <div class="content-top"></div>
        

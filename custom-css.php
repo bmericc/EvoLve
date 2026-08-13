@@ -130,7 +130,7 @@ $options = get_option('evolve');
 .home .odd0, .archive .odd0, .search .odd0{clear:both;}
 .home .odd1, .archive .odd1, .search .odd1{margin-right:0px;}
 .home .entry-title, .entry-title a, .archive .entry-title, .search .entry-title {font-size:24px;letter-spacing:-1px;line-height:23px;}
-.home .hentry img, .archive .hentry img, .search .hentry img{float:left;margin-right:10px;max-width:100px;max-height:150px;padding:3px;width:expression(document.body.clientWidth < 742? '100px' : document.body.clientWidth > 1000? '100px' : 'auto');}
+.home .hentry img, .archive .hentry img, .search .hentry img{float:left;margin-right:10px;max-width:100px;max-height:150px;padding:3px;}
 .home .entry-header, .archive .entry-header, .search .entry-header{font-size:12px;}
 .home .published strong, .archive .published strong,  .search .published strong{font-size:15px;line-height:15px;}
 .home .hentry .comment-count a, .archive .hentry .comment-count a, .search .hentry .comment-count a  {position:relative;bottom:-9px;margin-right:10px;border:none;padding:8px 10px;background:#fff;-moz-box-shadow:0 -1px 3px #ccc;}
