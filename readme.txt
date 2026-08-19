@@ -5,10 +5,17 @@ Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl
 
 Bu depo, alpindede.com için özelleştirilmiş bir EvoLve fork'udur (orijinal sürüm 1.2.3 taban alınmıştır).
 
-Current Version: 1.3.4
+Current Version: 1.3.5
 
 Fork Changelog
 --------------
+
+Version: 1.3.5 - 19/8/26
+ - Theme Check bulguları giderildi: esc_url() eksik home_url()/get_template_directory_uri()
+   çıktıları, wp_body_open() eklendi, TEMPLATEPATH/STYLESHEETPATH deprecated sabitler
+   güncellendi, screen_icon() dead çağrı kaldırıldı, tüm __() çağrılarına 'evolve'
+   text-domain eklendi, style.css başlıkları tamamlandı (Text Domain/Requires PHP/
+   Tested up to), copyright notice eklendi
 
 Version: 1.3.4 - 4/8/26
  - AMP sayfalarında jQuery, Superfish ve diğer tema JavaScript dosyaları
