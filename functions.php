@@ -1,7 +1,7 @@
 <?php   
 
 
-define( 'EVOLVE_THEME_VERSION', '1.3.4' );
+define( 'EVOLVE_THEME_VERSION', '1.3.5' );
 
 /**
  * Official AMP plugin requests must not include arbitrary theme JavaScript.
@@ -71,9 +71,9 @@ if ( ! isset( $content_width ) )
   
   
   
-	load_theme_textdomain( 'evolve', TEMPLATEPATH . '/languages' );
+	load_theme_textdomain( 'evolve', get_template_directory() . '/languages' );
 	$locale = get_locale();
-	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
+	$locale_file = get_template_directory() . "/languages/$locale.php";
 	if ( is_readable( $locale_file ) )
 		require_once( $locale_file ); 
 /**
@@ -120,101 +120,101 @@ global $themename, $shortname, $options;
 $select_sidebar = array(
 	'0' => array(
 		'value' =>	'right',
-		'label' => __( 'Right &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Right &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'left',
-		'label' => __( 'Left' )
+		'label' => __( 'Left', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'left_right',
-		'label' => __( 'Left + Right' )
+		'label' => __( 'Left + Right', 'evolve' )
 	)  
 ); 
 
 $select_logo = array(
 	'0' => array(
 		'value' =>	'left',
-		'label' => __( 'Left &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Left &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
     ),
 	'1' => array(
 		'value' =>	'right',
-		'label' => __( 'Right' )
+		'label' => __( 'Right', 'evolve' )
     ),
 	'2' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )    
+		'label' => __( 'Disable', 'evolve' )    
 	)
 ); 
 
 $select_sidebar_num = array(
 	'0' => array(
 		'value' =>	'one',
-		'label' => __( '1 &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( '1 &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'two',
-		'label' => __( '2' )
+		'label' => __( '2', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)     
 );   
 
 $select_width = array(
 	'0' => array(
 		'value' =>	'fixed',
-		'label' => __( 'Fixed &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Fixed &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'fluid',
-		'label' => __( 'Fluid' )
+		'label' => __( 'Fluid', 'evolve' )
 	)
 ); 
 
 $select_home_header = array(
 	'0' => array(
 		'value' =>	'search_social',
-		'label' => __( 'Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'post_search_social',
-		'label' => __( 'Recent Posts + Search Field + Subscribe Buttons' )
+		'label' => __( 'Recent Posts + Search Field + Subscribe Buttons', 'evolve' )
 	),
   '2' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)
 ); 
 
 $select_single_header = array(
 	'0' => array(
 		'value' =>	'search_social',
-		'label' => __( 'Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'post_search_social',
-		'label' => __( 'Recent Posts + Search Field + Subscribe Buttons' )
+		'label' => __( 'Recent Posts + Search Field + Subscribe Buttons', 'evolve' )
 	),
   '2' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)
 ); 
 
 $select_archives_header = array(
 	'0' => array(
 		'value' =>	'search_social',
-		'label' => __( 'Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'post_search_social',
-		'label' => __( 'Recent Posts + Search Field + Subscribe Buttons' )
+		'label' => __( 'Recent Posts + Search Field + Subscribe Buttons', 'evolve' )
 	),
   '2' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)
 ); 
 
@@ -222,22 +222,22 @@ $select_archives_header = array(
 $select_content_back = array(
 	'0' => array(
 		'value' =>	'light',
-		'label' => __( 'Light &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Light &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'dark',
-    'label' => __( 'Dark' )
+    'label' => __( 'Dark', 'evolve' )
 	)
 ); 
 
 $select_menu_back = array(
 	'0' => array(
 		'value' =>	'light',
-		'label' => __( 'Light &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Light &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'dark',
-		'label' => __( 'Dark' )
+		'label' => __( 'Dark', 'evolve' )
 	)
 ); 
 
@@ -245,92 +245,92 @@ $select_menu_back = array(
 $select_main_color = array(
 	'0' => array(
 		'value' =>	'grey_blue',
-		'label' => __( 'Dark Grey + Blue &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Dark Grey + Blue &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'light_grey_blue',
-		'label' => __( 'Light Grey + Blue' )
+		'label' => __( 'Light Grey + Blue', 'evolve' )
 	),
   '2' => array(
 		'value' =>	'green_yellow',
-		'label' => __( 'Green + Yellow' )
+		'label' => __( 'Green + Yellow', 'evolve' )
 	),
   '3' => array(
 		'value' =>	'red_yellow',
-		'label' => __( 'Red + Yellow' )
+		'label' => __( 'Red + Yellow', 'evolve' )
 	),
   '4' => array(
 		'value' =>	'pink_purple',
-		'label' => __( 'Pink + Purple' )
+		'label' => __( 'Pink + Purple', 'evolve' )
 	),
   '5' => array(
 		'value' =>	'light_blue',
-		'label' => __( 'Light Blue + Blue' )
+		'label' => __( 'Light Blue + Blue', 'evolve' )
 	),
   '6' => array(
 		'value' =>	'brown_yellow',
-		'label' => __( 'Brown + Yellow' )
+		'label' => __( 'Brown + Yellow', 'evolve' )
 	)                
 );
 
 $select_post_layout = array(
 	'0' => array(
 		'value' =>	'one',
-		'label' => __( '1 &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( '1 &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'two',
-		'label' => __( '2' )
+		'label' => __( '2', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'three',
-		'label' => __( '3' )
+		'label' => __( '3', 'evolve' )
 	)  
 ); 
 
 $select_title_font = array(
 	'0' => array(
 		'value' =>	'impact',
-		'label' => __( 'Impact &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Impact &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'tahoma',
-		'label' => __( 'Tahoma' )
+		'label' => __( 'Tahoma', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'georgia',
-		'label' => __( 'Georgia' )
+		'label' => __( 'Georgia', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'arial',
-		'label' => __( 'Arial' )
+		'label' => __( 'Arial', 'evolve' )
 	),
 	'4' => array(
 		'value' =>	'calibri',
-		'label' => __( 'Calibri' )
+		'label' => __( 'Calibri', 'evolve' )
 	)  
 ); 
 
 $select_content_font = array(
 	'0' => array(
 		'value' =>	'segoe',
-		'label' => __( 'Segoe UI &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Segoe UI &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'arial',
-		'label' => __( 'Arial' )
+		'label' => __( 'Arial', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'georgia',
-		'label' => __( 'Georgia' )
+		'label' => __( 'Georgia', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'courier',
-		'label' => __( 'Courier New' )
+		'label' => __( 'Courier New', 'evolve' )
 	),
 	'4' => array(
 		'value' =>	'calibri',
-		'label' => __( 'Calibri' )
+		'label' => __( 'Calibri', 'evolve' )
 	)  
 );
 
@@ -338,23 +338,23 @@ $select_content_font = array(
 $select_widgets_num = array(
 	'0' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	), 
 	'1' => array(
 		'value' =>	'one',
-		'label' => __( '1' )
+		'label' => __( '1', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'two',
-		'label' => __( '2' )
+		'label' => __( '2', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'three',
-		'label' => __( '3' )
+		'label' => __( '3', 'evolve' )
 	),
 	'4' => array(
 		'value' =>	'four',
-		'label' => __( '4' )
+		'label' => __( '4', 'evolve' )
 	)    
 ); 
 
@@ -362,95 +362,95 @@ $select_widgets_num = array(
 $select_widgets_header = array(
 	'0' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	), 
 	'1' => array(
 		'value' =>	'one',
-		'label' => __( '1' )
+		'label' => __( '1', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'two',
-		'label' => __( '2' )
+		'label' => __( '2', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'three',
-		'label' => __( '3' )
+		'label' => __( '3', 'evolve' )
 	),
 	'4' => array(
 		'value' =>	'four',
-		'label' => __( '4' )
+		'label' => __( '4', 'evolve' )
 	)        
 );   
 
 $select_nav_links = array(
 	'0' => array(
 		'value' =>	'after',
-		'label' => __( 'After posts &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'After posts &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'before',
-		'label' => __( 'Before posts' )
+		'label' => __( 'Before posts', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'both',
-		'label' => __( 'Both' )
+		'label' => __( 'Both', 'evolve' )
 	)      
 );
 
 $slider_speed = array(
   '0' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	), 
 	'1' => array(
 		'value' =>	'normal',
-		'label' => __( 'Normal' )
+		'label' => __( 'Normal', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'slow',
-		'label' => __( 'Slow' )
+		'label' => __( 'Slow', 'evolve' )
 	),
   '3' => array(
 		'value' =>	'fast',
-		'label' => __( 'Fast' )
+		'label' => __( 'Fast', 'evolve' )
 	)
 );
 
 $slider_effect_options = array(
 	'0' => array(
 		'value' =>	'fade',
-		'label' => __( 'Fade &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Fade &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'scrollHorz',
-		'label' => __( 'Scroll Horizontal' )
+		'label' => __( 'Scroll Horizontal', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'scrollVert',
-		'label' => __( 'Scroll Vertical' )
+		'label' => __( 'Scroll Vertical', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'shuffle',
-		'label' => __( 'Shuffle' )
+		'label' => __( 'Shuffle', 'evolve' )
 	)
 );
 
 $select_back_button = array(
   '0' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	), 
 	'1' => array(
 		'value' =>	'left',
-		'label' => __( 'Left' )
+		'label' => __( 'Left', 'evolve' )
 	),
   '2' => array(
 		'value' =>	'right',
-		'label' => __( 'Right' )
+		'label' => __( 'Right', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'middle',
-		'label' => __( 'Middle' )
+		'label' => __( 'Middle', 'evolve' )
 	)  
                    
 ); 
@@ -458,87 +458,87 @@ $select_back_button = array(
 $share_this_button = array(
 	'0' => array(
 		'value' =>	'single',
-		'label' => __( 'Single posts &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Single posts &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'single_archive',
-		'label' => __( 'Single posts + Archive pages' )
+		'label' => __( 'Single posts + Archive pages', 'evolve' )
 	),
   '2' => array(
 		'value' =>	'all',
-		'label' => __( 'All pages' )
+		'label' => __( 'All pages', 'evolve' )
 	),
   '3' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)                     
 ); 
 
 $header_meta = array(
 	'0' => array(
 		'value' =>	'single_archive',
-		'label' => __( 'Single posts + Archive pages &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Single posts + Archive pages &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'single',
-		'label' => __( 'Single posts' )
+		'label' => __( 'Single posts', 'evolve' )
 	),  
   '2' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)                   
 ); 
 
 $select_post_links = array(
 	'0' => array(
 		'value' =>	'after',
-		'label' => __( 'After post content &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'After post content &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'before',
-		'label' => __( 'Before post content' )
+		'label' => __( 'Before post content', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'both',
-		'label' => __( 'Both' )
+		'label' => __( 'Both', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)
   );  
   
 $select_tagline_pos = array(
 	'0' => array(
 		'value' =>	'next',
-		'label' => __( 'Next to blog title &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Next to blog title &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'above',
-		'label' => __( 'Above blog title' )
+		'label' => __( 'Above blog title', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'under',
-		'label' => __( 'Under blog title' )
+		'label' => __( 'Under blog title', 'evolve' )
 	),
 	'3' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable' )
+		'label' => __( 'Disable', 'evolve' )
 	)  
 );
 
 $select_similar_posts = array(
 	'0' => array(
 		'value' =>	'disable',
-		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)' )
+		'label' => __( 'Disable &nbsp;&nbsp;&nbsp;(default)', 'evolve' )
 	),
 	'1' => array(
 		'value' =>	'category',
-		'label' => __( 'Match by categories' )
+		'label' => __( 'Match by categories', 'evolve' )
 	),
 	'2' => array(
 		'value' =>	'tag',
-		'label' => __( 'Match by tags' )
+		'label' => __( 'Match by tags', 'evolve' )
 	)
 );
 
@@ -1144,13 +1144,10 @@ function theme_options_do_page() {
   
  
   
-<?php if ( function_exists('screen_icon') ) screen_icon(); ?>
-
-      
 <h2><?php echo $themename; ?> Settings</h2><br />
 
 
- <div style="margin-bottom:15px;padding:0 20px;clear:both;float:right;background:url('<?php echo get_template_directory_uri(); ?>/library/media/images/light-grey-blue/header-light.jpg') repeat-x scroll left bottom #FBFBFB;border:2px solid #ccc;-moz-border-radius:4px;-moz-box-shadow:0 1px 8px #bbb;">
+ <div style="margin-bottom:15px;padding:0 20px;clear:both;float:right;background:url('<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/images/light-grey-blue/header-light.jpg') repeat-x scroll left bottom #FBFBFB;border:2px solid #ccc;-moz-border-radius:4px;-moz-box-shadow:0 1px 8px #bbb;">
   
        
    <div style="float:right;font-weight:bold;position:relative;top:20px;">Developed by <a title="Visit author homepage" href="http://blogatize.net">Blogatize</a></div>
@@ -1171,7 +1168,7 @@ function theme_options_do_page() {
     
     
     
-    <a href="http://theme4press.com/evolve-advance/"><img style="margin-bottom:20px;float:right;position:relative;top:10px;right:20px;" width="484" height="73" src="<?php echo get_template_directory_uri(); ?>/library/media/images/evolve-advance.png" /></a>
+    <a href="http://theme4press.com/evolve-advance/"><img style="margin-bottom:20px;float:right;position:relative;top:10px;right:20px;" width="484" height="73" src="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/images/evolve-advance.png" /></a>
     
     
     
@@ -2858,7 +2855,7 @@ function ud_setting_filename() {
 add_action( 'init', 'register_my_menu' );
 
 function register_my_menu() {
-	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );	
+	register_nav_menu( 'primary-menu', __( 'Primary Menu', 'evolve' ) );	
 }
 
 
@@ -3099,7 +3096,7 @@ function evolve_sharethis() { ?>
           <a rel="nofollow" target="_blank" class="share-delicious" href="http://del.icio.us/post?url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>">Delicious</a>
           <a rel="nofollow" target="_blank" class="share-stumble" href="http://www.stumbleupon.com/submit?url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>">StumbleUpon</a>
           <a rel="nofollow" target="_blank" class="share-email" href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><?php _e( 'E-mail', 'evolve' ); ?></a>
-          <a rel="nofollow" class="tipsytext" style="position:relative;top:3px;left:8px;" title="<?php _e( 'More options', 'evolve' ); ?>" target="_blank" href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/library/media/images/share-more.gif" /></a>
+          <a rel="nofollow" class="tipsytext" style="position:relative;top:3px;left:8px;" title="<?php _e( 'More options', 'evolve' ); ?>" target="_blank" href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/images/share-more.gif" /></a>
           </div>
 <?php }
 

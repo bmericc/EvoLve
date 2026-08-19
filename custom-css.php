@@ -5,35 +5,35 @@ $options = get_option('evolve');
   
   <?php } if ($options['evl_pos_sidebar'] == "left") { ?> 
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/2col-l.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/2col-l.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
    
   <?php } if ($options['evl_pos_sidebar'] == "left" && $options['evl_sidebar_num'] == "two") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/3col-l.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/3col-l.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   <?php } if ($options['evl_pos_sidebar'] == "right" && $options['evl_sidebar_num'] == "two") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/3col-r.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/3col-r.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
     <?php } if ($options['evl_pos_sidebar'] == "left_right" && $options['evl_sidebar_num'] == "two") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/3col-l+r.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/3col-l+r.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
   
   <?php } if ($options['evl_width_layout'] == "fluid") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   <?php } if ($options['evl_width_layout'] == "fluid" && $options['evl_sidebar_num'] == "two") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/2fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/2fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
     <?php } if ($options['evl_width_layout'] == "fluid" && $options['evl_sidebar_num'] == "two" && $options['evl_pos_sidebar'] == "left_right") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/3fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/3fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   <?php } if ($options['evl_sidebar_num'] == "disable") { ?>
   
@@ -51,69 +51,69 @@ $options = get_option('evolve');
   
   <?php } if ($options['evl_sidebar_num'] == "disable" && $options['evl_width_layout'] == "fluid") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/no-sidebar-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/no-sidebar-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
    <?php } if ($options['evl_content_back'] == "dark") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
   
      <?php } if ($options['evl_menu_back'] == "dark") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/dark-menu.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/dark-menu.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
        <?php } if ($options['evl_main_color'] == "light_grey_blue") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/light-grey-blue.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/light-grey-blue.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
       <?php } if ($options['evl_main_color'] == "light_grey_blue" && $options['evl_content_back'] == "dark" ) { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/light-grey-blue+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/light-grey-blue+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
            <?php } if ($options['evl_main_color'] == "green_yellow") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/green-yellow.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/green-yellow.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
            <?php } if ($options['evl_main_color'] == "green_yellow" && $options['evl_content_back'] == "dark" ) { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/green-yellow+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/green-yellow+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
              <?php } if ($options['evl_main_color'] == "red_yellow") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/red-yellow.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/red-yellow.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
                <?php } if ($options['evl_main_color'] == "red_yellow" && $options['evl_content_back'] == "dark") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/red-yellow+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/red-yellow+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
  
                <?php } if ($options['evl_main_color'] == "pink_purple") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/pink-purple.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/pink-purple.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
                  <?php } if ($options['evl_main_color'] == "pink_purple" && $options['evl_content_back'] == "dark" ) { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/pink-purple+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/pink-purple+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
                  <?php } if ($options['evl_main_color'] == "light_blue") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/light-blue.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/light-blue.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
                  <?php } if ($options['evl_main_color'] == "light_blue" && $options['evl_content_back'] == "dark" ) { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/light-blue+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/light-blue+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
                  <?php } if ($options['evl_main_color'] == "brown_yellow") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/brown-yellow.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/brown-yellow.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
                  <?php } if ($options['evl_main_color'] == "brown_yellow" && $options['evl_content_back'] == "dark" ) { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/brown-yellow+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/brown-yellow+dark.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
       
 
                  <?php } if ($options['evl_post_layout'] == "two") { ?>
@@ -138,7 +138,7 @@ $options = get_option('evolve');
   
                   <?php } if ($options['evl_post_layout'] == "three") { ?>
   
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/posts-layout-three.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+  <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/posts-layout-three.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
   
   
@@ -214,35 +214,35 @@ $options = get_option('evolve');
 
 <?php } if ($options['evl_widgets_header'] == "two") { ?>  
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-header/2-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-header/2-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
 
   <?php } if ($options['evl_widgets_header'] == "three") { ?>  
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-header/3-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-header/3-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_header'] == "four") { ?>  
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-header/4-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-header/4-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_header'] == "two" && $options['evl_width_layout'] == "fluid") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-header/2-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-header/2-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_header'] == "three" && $options['evl_width_layout'] == "fluid") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-header/3-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-header/3-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_header'] == "four" && $options['evl_width_layout'] == "fluid") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-header/4-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-header/4-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
   
@@ -252,35 +252,35 @@ $options = get_option('evolve');
 
 <?php } if ($options['evl_widgets_num'] == "two") { ?>  
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-footer/2-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-footer/2-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
   
 
   <?php } if ($options['evl_widgets_num'] == "three") { ?>  
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-footer/3-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-footer/3-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_num'] == "four") { ?>  
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-footer/4-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-footer/4-widgets.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_num'] == "two" && $options['evl_width_layout'] == "fluid") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-footer/2-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-footer/2-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_num'] == "three" && $options['evl_width_layout'] == "fluid") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-footer/3-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-footer/3-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_widgets_num'] == "four" && $options['evl_width_layout'] == "fluid") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/widgets-footer/4-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/widgets-footer/4-widgets-fluid.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_back_images'] == "1") { ?>
@@ -315,12 +315,12 @@ $options = get_option('evolve');
 <?php } if ($options['evl_back_images'] == "1" && $options['evl_content_back'] == "dark") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/dark-nacked-content.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/dark-nacked-content.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 <?php } if ($options['evl_back_images'] == "1" && $options['evl_menu_back'] == "dark") { ?>
 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/media/layouts/dark-nacked-menu.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/library/media/layouts/dark-nacked-menu.css<?php echo $evolve_css_version; ?>" type="text/css" media="screen" />
 
 
 <?php } if ($options['evl_custom_background'] == "1") { ?>

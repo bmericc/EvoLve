@@ -7,7 +7,7 @@
  */
 ?>
 <!--BEGIN #searchform-->
-       <form action="<?php echo home_url(); ?>" method="get" class="searchform">
+       <form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="searchform">
        
          <div id="search-text-box">
   <div class="search-text-left"></div>

@@ -47,7 +47,7 @@ class WPevolve {
 		define( 'THEME', get_template_directory_uri() );
 		define( 'LIBRARY', THEME . '/library' ); // Shortcut to point to the /library/ URI
 
-		if ( STYLESHEETPATH !== get_template_directory() ) define( 'MEDIA', get_stylesheet_directory_uri() ); // Shortcut to point to the /media/ URI
+		if ( get_stylesheet_directory() !== get_template_directory() ) define( 'MEDIA', get_stylesheet_directory_uri() ); // Shortcut to point to the /media/ URI
 		else define( 'MEDIA', LIBRARY . '/media' ); // Shortcut to point to the /media/ URI
 
 		define( 'CSS', MEDIA . '/css' );

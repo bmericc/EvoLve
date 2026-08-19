@@ -51,6 +51,7 @@
 
 <!--BEGIN body-->
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
 <?php if ($options['evl_custom_background'] == "1") { ?>
 <div id="wrapper">
@@ -90,7 +91,7 @@
   
     <?php $options = get_option('evolve');
     if ($file = $options['file']) {
-        echo "<a href=".home_url()."><img id='logo-image' src='/wp-content/uploads/2013/12/alpindede_logo.png' alt='".esc_attr( get_bloginfo( 'name' ) )."' /></a>";
+        echo '<a href="' . esc_url( home_url( '/' ) ) . '"><img id="logo-image" src="' . esc_url( content_url( '/uploads/2013/12/alpindede_logo.png' ) ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" /></a>';
     }
       ?>  
      
@@ -123,7 +124,7 @@
      
      
        
-			<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a></div>
+			<div id="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ) ?></a></div>
       
       <?php } if (($options['evl_tagline_pos'] !== "disable") && (($options['evl_tagline_pos'] == "") || ($options['evl_tagline_pos'] == "next") || ($options['evl_tagline_pos'] == "under")))    
       {
