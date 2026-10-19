@@ -105,24 +105,24 @@ function evolve_featured_post_slider() {
 		return;
 	}
 
-	$ids = array_filter( array_map( 'intval', explode( ',', (string) $options['evl_new_slider_posts'] ) ) );
-
-	if ( empty( $ids ) ) {
-		return;
-	}
-
+	// Travelify otomatik modu: öne çıkarılan görseli olan son 5 yazı
 	$slider_query = new WP_Query( array(
-		'post_type'           => array( 'post', 'page' ),
-		'post__in'            => $ids,
-		'orderby'              => 'post__in',
-		'posts_per_page'       => count( $ids ),
-		'ignore_sticky_posts'  => 1,
-		'suppress_filters'     => false,
+		'post_type'           => array( 'post' ),
+		'posts_per_page'      => 5,
+		'orderby'             => 'date',
+		'order'               => 'DESC',
+		'meta_key'            => '_thumbnail_id',
+		'ignore_sticky_posts' => 1,
+		'suppress_filters'    => false,
 	) );
 
 	if ( ! $slider_query->have_posts() ) {
 		return;
 	}
+
+	// Son 5 yazı DESC çekildi, eskiden yeniye çevir
+	$slider_query->posts = array_reverse( $slider_query->posts );
+	$slider_query->rewind_posts();
 
 	echo '<section class="featured-slider"><div class="slider-cycle">';
 

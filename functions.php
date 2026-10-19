@@ -906,16 +906,10 @@ array(  "name" => "Archives and other pages header content",
         "std" => "false"),               
         
 array(  "name" => "Enable Featured Slider",
-        "desc" => "Anasayfada tam genişlik öne çıkan yazı slider'ı gösterir (Travelify tarzı)",
+        "desc" => "Anasayfada öne çıkan görseli olan son 5 yazıyı tam genişlik slider'da gösterir (Travelify tarzı)",
         "id" => $shortname."_new_slider_enable",
         "type" => "checkbox",
         "std" => "0"),
-
-array(  "name" => "Slider Posts",
-        "desc" => "Slider'da gösterilecek yazı/sayfa ID'lerini virgülle ayırarak sırayla girin, örn: 12,45,7",
-        "id" => $shortname."_new_slider_posts",
-        "type" => "text",
-        "std" => ""),
 
 array(  "name" => "Slider Transition Effect",
         "desc" => "",
@@ -2700,9 +2694,6 @@ function theme_options_validate( $input ) {
      if ( ! isset( $input['evl_new_slider_enable'] ) )
 		$input['evl_new_slider_enable'] = null;
 	$input['evl_new_slider_enable'] = ( $input['evl_new_slider_enable'] == 1 ? 1 : 0 );
-
-	// Slider post ID listesi: sadece rakam, virgül ve boşluk kabul edilir
-	$input['evl_new_slider_posts'] = preg_replace( '/[^0-9,\s]/', '', $input['evl_new_slider_posts'] );
 
 	// Slider gecikme: sadece rakam
 	$input['evl_new_slider_delay'] = preg_replace( '/[^0-9]/', '', $input['evl_new_slider_delay'] );
